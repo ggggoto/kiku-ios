@@ -7,6 +7,7 @@
 //
 
 #import "TTViewController.h"
+#import "TTCommunicationEngine.h"
 
 @interface TTViewController ()
 
@@ -14,10 +15,18 @@
 
 @implementation TTViewController
 
+@synthesize comEngine = _comEngine;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    [self initialize];
+}
+
+- (void)initialize {
+    _comEngine = [[TTCommunicationEngine alloc]init];
+    [_comEngine readJson];
 }
 
 - (void)didReceiveMemoryWarning

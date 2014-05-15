@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TTCommunicationEngine.h"
 
 @interface TTViewController : UIViewController
+
+@property (nonatomic, strong) TTCommunicationEngine* comEngine;
 
 @end
