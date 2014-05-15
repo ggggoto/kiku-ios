@@ -1,0 +1,486 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		45FC1C691925251900694056 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45FC1C681925251900694056 /* Foundation.framework */; };
+		45FC1C6B1925251900694056 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45FC1C6A1925251900694056 /* CoreGraphics.framework */; };
+		45FC1C6D1925251900694056 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45FC1C6C1925251900694056 /* UIKit.framework */; };
+		45FC1C731925251900694056 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45FC1C711925251900694056 /* InfoPlist.strings */; };
+		45FC1C751925251900694056 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC1C741925251900694056 /* main.m */; };
+		45FC1C791925251900694056 /* TTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC1C781925251900694056 /* TTAppDelegate.m */; };
+		45FC1C7C1925251900694056 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45FC1C7A1925251900694056 /* Main_iPhone.storyboard */; };
+		45FC1C7F1925251900694056 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45FC1C7D1925251900694056 /* Main_iPad.storyboard */; };
+		45FC1C821925251900694056 /* TTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC1C811925251900694056 /* TTViewController.m */; };
+		45FC1C841925251900694056 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45FC1C831925251900694056 /* Images.xcassets */; };
+		45FC1C8B1925251900694056 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45FC1C8A1925251900694056 /* XCTest.framework */; };
+		45FC1C8C1925251900694056 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45FC1C681925251900694056 /* Foundation.framework */; };
+		45FC1C8D1925251900694056 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45FC1C6C1925251900694056 /* UIKit.framework */; };
+		45FC1C951925251900694056 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45FC1C931925251900694056 /* InfoPlist.strings */; };
+		45FC1C971925251900694056 /* kikuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC1C961925251900694056 /* kikuTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		45FC1C8E1925251900694056 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45FC1C5D1925251900694056 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45FC1C641925251900694056;
+			remoteInfo = kiku;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		45FC1C651925251900694056 /* kiku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kiku.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		45FC1C681925251900694056 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		45FC1C6A1925251900694056 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		45FC1C6C1925251900694056 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		45FC1C701925251900694056 /* kiku-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "kiku-Info.plist"; sourceTree = "<group>"; };
+		45FC1C721925251900694056 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		45FC1C741925251900694056 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		45FC1C761925251900694056 /* kiku-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kiku-Prefix.pch"; sourceTree = "<group>"; };
+		45FC1C771925251900694056 /* TTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTAppDelegate.h; sourceTree = "<group>"; };
+		45FC1C781925251900694056 /* TTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTAppDelegate.m; sourceTree = "<group>"; };
+		45FC1C7B1925251900694056 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		45FC1C7E1925251900694056 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		45FC1C801925251900694056 /* TTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTViewController.h; sourceTree = "<group>"; };
+		45FC1C811925251900694056 /* TTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTViewController.m; sourceTree = "<group>"; };
+		45FC1C831925251900694056 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		45FC1C891925251900694056 /* kikuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kikuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		45FC1C8A1925251900694056 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		45FC1C921925251900694056 /* kikuTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "kikuTests-Info.plist"; sourceTree = "<group>"; };
+		45FC1C941925251900694056 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		45FC1C961925251900694056 /* kikuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = kikuTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		45FC1C621925251900694056 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45FC1C6B1925251900694056 /* CoreGraphics.framework in Frameworks */,
+				45FC1C6D1925251900694056 /* UIKit.framework in Frameworks */,
+				45FC1C691925251900694056 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45FC1C861925251900694056 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45FC1C8B1925251900694056 /* XCTest.framework in Frameworks */,
+				45FC1C8D1925251900694056 /* UIKit.framework in Frameworks */,
+				45FC1C8C1925251900694056 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		45FC1C5C1925251900694056 = {
+			isa = PBXGroup;
+			children = (
+				45FC1C6E1925251900694056 /* kiku */,
+				45FC1C901925251900694056 /* kikuTests */,
+				45FC1C671925251900694056 /* Frameworks */,
+				45FC1C661925251900694056 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		45FC1C661925251900694056 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				45FC1C651925251900694056 /* kiku.app */,
+				45FC1C891925251900694056 /* kikuTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		45FC1C671925251900694056 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45FC1C681925251900694056 /* Foundation.framework */,
+				45FC1C6A1925251900694056 /* CoreGraphics.framework */,
+				45FC1C6C1925251900694056 /* UIKit.framework */,
+				45FC1C8A1925251900694056 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		45FC1C6E1925251900694056 /* kiku */ = {
+			isa = PBXGroup;
+			children = (
+				45FC1C771925251900694056 /* TTAppDelegate.h */,
+				45FC1C781925251900694056 /* TTAppDelegate.m */,
+				45FC1C7A1925251900694056 /* Main_iPhone.storyboard */,
+				45FC1C7D1925251900694056 /* Main_iPad.storyboard */,
+				45FC1C801925251900694056 /* TTViewController.h */,
+				45FC1C811925251900694056 /* TTViewController.m */,
+				45FC1C831925251900694056 /* Images.xcassets */,
+				45FC1C6F1925251900694056 /* Supporting Files */,
+			);
+			path = kiku;
+			sourceTree = "<group>";
+		};
+		45FC1C6F1925251900694056 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				45FC1C701925251900694056 /* kiku-Info.plist */,
+				45FC1C711925251900694056 /* InfoPlist.strings */,
+				45FC1C741925251900694056 /* main.m */,
+				45FC1C761925251900694056 /* kiku-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		45FC1C901925251900694056 /* kikuTests */ = {
+			isa = PBXGroup;
+			children = (
+				45FC1C961925251900694056 /* kikuTests.m */,
+				45FC1C911925251900694056 /* Supporting Files */,
+			);
+			path = kikuTests;
+			sourceTree = "<group>";
+		};
+		45FC1C911925251900694056 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				45FC1C921925251900694056 /* kikuTests-Info.plist */,
+				45FC1C931925251900694056 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		45FC1C641925251900694056 /* kiku */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45FC1C9A1925251900694056 /* Build configuration list for PBXNativeTarget "kiku" */;
+			buildPhases = (
+				45FC1C611925251900694056 /* Sources */,
+				45FC1C621925251900694056 /* Frameworks */,
+				45FC1C631925251900694056 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = kiku;
+			productName = kiku;
+			productReference = 45FC1C651925251900694056 /* kiku.app */;
+			productType = "com.apple.product-type.application";
+		};
+		45FC1C881925251900694056 /* kikuTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45FC1C9D1925251900694056 /* Build configuration list for PBXNativeTarget "kikuTests" */;
+			buildPhases = (
+				45FC1C851925251900694056 /* Sources */,
+				45FC1C861925251900694056 /* Frameworks */,
+				45FC1C871925251900694056 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				45FC1C8F1925251900694056 /* PBXTargetDependency */,
+			);
+			name = kikuTests;
+			productName = kikuTests;
+			productReference = 45FC1C891925251900694056 /* kikuTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		45FC1C5D1925251900694056 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TT;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = TsuzukiTomoaki;
+				TargetAttributes = {
+					45FC1C881925251900694056 = {
+						TestTargetID = 45FC1C641925251900694056;
+					};
+				};
+			};
+			buildConfigurationList = 45FC1C601925251900694056 /* Build configuration list for PBXProject "kiku" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 45FC1C5C1925251900694056;
+			productRefGroup = 45FC1C661925251900694056 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				45FC1C641925251900694056 /* kiku */,
+				45FC1C881925251900694056 /* kikuTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		45FC1C631925251900694056 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45FC1C7F1925251900694056 /* Main_iPad.storyboard in Resources */,
+				45FC1C841925251900694056 /* Images.xcassets in Resources */,
+				45FC1C7C1925251900694056 /* Main_iPhone.storyboard in Resources */,
+				45FC1C731925251900694056 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45FC1C871925251900694056 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45FC1C951925251900694056 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		45FC1C611925251900694056 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45FC1C791925251900694056 /* TTAppDelegate.m in Sources */,
+				45FC1C751925251900694056 /* main.m in Sources */,
+				45FC1C821925251900694056 /* TTViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45FC1C851925251900694056 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45FC1C971925251900694056 /* kikuTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		45FC1C8F1925251900694056 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45FC1C641925251900694056 /* kiku */;
+			targetProxy = 45FC1C8E1925251900694056 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		45FC1C711925251900694056 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45FC1C721925251900694056 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		45FC1C7A1925251900694056 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45FC1C7B1925251900694056 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		45FC1C7D1925251900694056 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45FC1C7E1925251900694056 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		45FC1C931925251900694056 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45FC1C941925251900694056 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		45FC1C981925251900694056 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		45FC1C991925251900694056 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		45FC1C9B1925251900694056 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "kiku/kiku-Prefix.pch";
+				INFOPLIST_FILE = "kiku/kiku-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		45FC1C9C1925251900694056 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "kiku/kiku-Prefix.pch";
+				INFOPLIST_FILE = "kiku/kiku-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		45FC1C9E1925251900694056 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/kiku.app/kiku";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "kiku/kiku-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "kikuTests/kikuTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		45FC1C9F1925251900694056 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/kiku.app/kiku";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "kiku/kiku-Prefix.pch";
+				INFOPLIST_FILE = "kikuTests/kikuTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		45FC1C601925251900694056 /* Build configuration list for PBXProject "kiku" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45FC1C981925251900694056 /* Debug */,
+				45FC1C991925251900694056 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45FC1C9A1925251900694056 /* Build configuration list for PBXNativeTarget "kiku" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45FC1C9B1925251900694056 /* Debug */,
+				45FC1C9C1925251900694056 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		45FC1C9D1925251900694056 /* Build configuration list for PBXNativeTarget "kikuTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45FC1C9E1925251900694056 /* Debug */,
+				45FC1C9F1925251900694056 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 45FC1C5D1925251900694056 /* Project object */;
+}
