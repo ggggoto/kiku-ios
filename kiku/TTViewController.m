@@ -7,7 +7,6 @@
 //
 
 #import "TTViewController.h"
-#import "TTCommunicationEngine.h"
 
 @interface TTViewController ()
 
@@ -16,6 +15,7 @@
 @implementation TTViewController
 
 @synthesize comEngine = _comEngine;
+@synthesize audioEngine = _audioEngine;
 
 - (void)viewDidLoad
 {
@@ -26,8 +26,10 @@
 
 - (void)initialize {
     _comEngine = [[TTCommunicationEngine alloc]init];
+    _audioEngine = [[TTAudioEngine alloc] init];
     //[_comEngine trySearch:@"Mr Children" withPage:1];
-    [_comEngine tryGetAlbum:@"180252"];
+    //[_comEngine tryGetAlbum:@"180252"];
+    [_audioEngine play:@"http://m5.file.xiami.com/906/6906/180252/2213480_4149968_l.mp3?auth_key=80d893afaf20070d1a8ef242d038d573-1400457600-0-null"];
 }
 
 - (void)didReceiveMemoryWarning

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45A8B43D1927D14800013B83 /* TTUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A8B43C1927D14800013B83 /* TTUserData.m */; };
+		45A8B4401927D1FC00013B83 /* RMSQLite3.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A8B43F1927D1FC00013B83 /* RMSQLite3.m */; };
+		45A8B4421927D20800013B83 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A8B4411927D20800013B83 /* libsqlite3.0.dylib */; };
+		45D1FF071927DFAA006A1F12 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45D1FF061927DFAA006A1F12 /* MediaPlayer.framework */; };
 		45FC1C691925251900694056 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45FC1C681925251900694056 /* Foundation.framework */; };
 		45FC1C6B1925251900694056 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45FC1C6A1925251900694056 /* CoreGraphics.framework */; };
 		45FC1C6D1925251900694056 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45FC1C6C1925251900694056 /* UIKit.framework */; };
@@ -35,6 +39,9 @@
 		45FC1CC4192525E700694056 /* TTCommunicationEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC1CC3192525E700694056 /* TTCommunicationEngine.m */; };
 		45FC1CC819252AC800694056 /* TTData.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC1CC719252AC800694056 /* TTData.m */; };
 		45FC1CCB19252BD500694056 /* TTSongData.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC1CCA19252BD500694056 /* TTSongData.m */; };
+		45FC1CD01927C90200694056 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45FC1CCF1927C90200694056 /* AudioToolbox.framework */; };
+		45FC1CD41927C93800694056 /* TTAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC1CD31927C93800694056 /* TTAudioEngine.m */; };
+		45FC1CD61927C96F00694056 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45FC1CD51927C96F00694056 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +55,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		45A8B43B1927D14800013B83 /* TTUserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTUserData.h; path = Classes/Data/TTUserData.h; sourceTree = "<group>"; };
+		45A8B43C1927D14800013B83 /* TTUserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTUserData.m; path = Classes/Data/TTUserData.m; sourceTree = "<group>"; };
+		45A8B43E1927D1FC00013B83 /* RMSQLite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMSQLite3.h; path = Classes/Data/RMSQLite3.h; sourceTree = "<group>"; };
+		45A8B43F1927D1FC00013B83 /* RMSQLite3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMSQLite3.m; path = Classes/Data/RMSQLite3.m; sourceTree = "<group>"; };
+		45A8B4411927D20800013B83 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		45D1FF061927DFAA006A1F12 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		45FC1C651925251900694056 /* kiku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kiku.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45FC1C681925251900694056 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		45FC1C6A1925251900694056 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -97,6 +110,10 @@
 		45FC1CCA19252BD500694056 /* TTSongData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTSongData.m; path = Classes/Data/TTSongData.m; sourceTree = "<group>"; };
 		45FC1CCC1927B41000694056 /* Endpoints.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Endpoints.h; path = Classes/Comm/Endpoints.h; sourceTree = "<group>"; };
 		45FC1CCE1927C30D00694056 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Macro.h; path = Classes/macro/Macro.h; sourceTree = "<group>"; };
+		45FC1CCF1927C90200694056 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		45FC1CD21927C93800694056 /* TTAudioEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTAudioEngine.h; path = Classes/Audio/TTAudioEngine.h; sourceTree = "<group>"; };
+		45FC1CD31927C93800694056 /* TTAudioEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTAudioEngine.m; path = Classes/Audio/TTAudioEngine.m; sourceTree = "<group>"; };
+		45FC1CD51927C96F00694056 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +121,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45D1FF071927DFAA006A1F12 /* MediaPlayer.framework in Frameworks */,
+				45A8B4421927D20800013B83 /* libsqlite3.0.dylib in Frameworks */,
+				45FC1CD61927C96F00694056 /* AVFoundation.framework in Frameworks */,
+				45FC1CD01927C90200694056 /* AudioToolbox.framework in Frameworks */,
 				45FC1C6B1925251900694056 /* CoreGraphics.framework in Frameworks */,
 				45FC1C6D1925251900694056 /* UIKit.framework in Frameworks */,
 				45FC1C691925251900694056 /* Foundation.framework in Frameworks */,
@@ -145,6 +166,10 @@
 		45FC1C671925251900694056 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45D1FF061927DFAA006A1F12 /* MediaPlayer.framework */,
+				45A8B4411927D20800013B83 /* libsqlite3.0.dylib */,
+				45FC1CD51927C96F00694056 /* AVFoundation.framework */,
+				45FC1CCF1927C90200694056 /* AudioToolbox.framework */,
 				45FC1C681925251900694056 /* Foundation.framework */,
 				45FC1C6A1925251900694056 /* CoreGraphics.framework */,
 				45FC1C6C1925251900694056 /* UIKit.framework */,
@@ -156,6 +181,7 @@
 		45FC1C6E1925251900694056 /* kiku */ = {
 			isa = PBXGroup;
 			children = (
+				45FC1CD11927C91200694056 /* Audio */,
 				45FC1CCD1927C2FE00694056 /* macro */,
 				45FC1CC519252AAA00694056 /* Data */,
 				45FC1CC1192525C800694056 /* Comm */,
@@ -250,10 +276,14 @@
 		45FC1CC519252AAA00694056 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				45A8B43E1927D1FC00013B83 /* RMSQLite3.h */,
+				45A8B43F1927D1FC00013B83 /* RMSQLite3.m */,
 				45FC1CC619252AC800694056 /* TTData.h */,
 				45FC1CC719252AC800694056 /* TTData.m */,
 				45FC1CC919252BD500694056 /* TTSongData.h */,
 				45FC1CCA19252BD500694056 /* TTSongData.m */,
+				45A8B43B1927D14800013B83 /* TTUserData.h */,
+				45A8B43C1927D14800013B83 /* TTUserData.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -264,6 +294,15 @@
 				45FC1CCE1927C30D00694056 /* Macro.h */,
 			);
 			name = macro;
+			sourceTree = "<group>";
+		};
+		45FC1CD11927C91200694056 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				45FC1CD21927C93800694056 /* TTAudioEngine.h */,
+				45FC1CD31927C93800694056 /* TTAudioEngine.m */,
+			);
+			name = Audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,11 +404,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45FC1CD41927C93800694056 /* TTAudioEngine.m in Sources */,
 				45FC1CBE1925256D00694056 /* AFURLConnectionOperation.m in Sources */,
 				45FC1CC01925256D00694056 /* UIImageView+AFNetworking.m in Sources */,
 				45FC1CB91925256D00694056 /* AFImageRequestOperation.m in Sources */,
 				45FC1CC819252AC800694056 /* TTData.m in Sources */,
 				45FC1CBB1925256D00694056 /* AFJSONUtilities.m in Sources */,
+				45A8B43D1927D14800013B83 /* TTUserData.m in Sources */,
 				45FC1C791925251900694056 /* TTAppDelegate.m in Sources */,
 				45FC1CCB19252BD500694056 /* TTSongData.m in Sources */,
 				45FC1CBF1925256D00694056 /* AFXMLRequestOperation.m in Sources */,
@@ -381,6 +422,7 @@
 				45FC1CBD1925256D00694056 /* AFPropertyListRequestOperation.m in Sources */,
 				45FC1CC4192525E700694056 /* TTCommunicationEngine.m in Sources */,
 				45FC1CBC1925256D00694056 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				45A8B4401927D1FC00013B83 /* RMSQLite3.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
