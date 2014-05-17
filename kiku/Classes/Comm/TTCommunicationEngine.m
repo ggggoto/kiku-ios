@@ -134,7 +134,7 @@
         TTSongData *songData = [[TTSongData alloc]init];
         [songData load:content];
         [songData setAlbumName:albumName];
-        [songData setImage:image];
+        [songData setImageUrl:image];
         [result addObject:songData];
 #ifdef DEBUG_OUT
         NSLog(@"%@", [songData toString]);

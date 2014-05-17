@@ -77,7 +77,7 @@
 - (void)playPeek {
     TTSongData *data = [_queue peek];
     [self play:data.location];
-    [self setLockScreenInfo:NULL audioTitle:data.name albumTitle:data.albumName artist:data.artistName];
+    [self setLockScreenInfo:data.image audioTitle:data.name albumTitle:data.albumName artist:data.artistName];
 #ifdef DEBUG_OUT
     NSLog(@"Start playing %@", data.toString);
 #endif
@@ -138,12 +138,14 @@
                audioTitle:(NSString*)audioTitle
                albumTitle:(NSString*)albumTitle
                    artist:(NSString*)artist {
-    //MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithImage:art];
     NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
     [songInfo setObject:audioTitle forKey:MPMediaItemPropertyTitle];
     [songInfo setObject:artist forKey:MPMediaItemPropertyArtist];
     [songInfo setObject:albumTitle forKey:MPMediaItemPropertyAlbumTitle];
-    //[songInfo setObject:albumArt forKey:MPMediaItemPropertyArtwork];
+    if (art != NULL) {
+        MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithImage:art];
+        [songInfo setObject:albumArt forKey:MPMediaItemPropertyArtwork];
+    }
     [MPNowPlayingInfoCenter defaultCenter].nowPlayingInfo = songInfo;
 }
 
