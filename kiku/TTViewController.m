@@ -21,7 +21,20 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    //for debug
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    btn.frame = CGRectMake(10, 100, 100, 50);
+    [btn setTitle:@"早送り" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(hoge:)forControlEvents:UIControlEventTouchDown];
+    [self.view addSubview:btn];
+    
     [self initialize];
+}
+
+//for debug
+-(void)hoge:(UIButton*)button{
+    [_audioEngine seek:[_audioEngine getCurrentPlaybackDuration] - 5];
 }
 
 - (void)initialize {

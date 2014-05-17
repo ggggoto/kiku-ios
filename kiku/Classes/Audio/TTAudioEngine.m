@@ -114,7 +114,7 @@
 
 - (int)getCurrentPlaybackDuration {
     if (_mediaPlayer.playbackState != MPMoviePlaybackStatePlaying
-        || _mediaPlayer.playbackState != MPMoviePlaybackStatePaused) {
+        && _mediaPlayer.playbackState != MPMoviePlaybackStatePaused) {
         return 0;
     }
     return _mediaPlayer.duration;
@@ -122,10 +122,10 @@
 
 - (void)seek:(int)time {
     if (_mediaPlayer.playbackState != MPMoviePlaybackStatePlaying
-        || _mediaPlayer.playbackState != MPMoviePlaybackStatePaused) {
+        && _mediaPlayer.playbackState != MPMoviePlaybackStatePaused) {
         return;
     }
-    if (time > [self getCurrentPlaybackDuration] && time > 0) {
+    if (time > [self getCurrentPlaybackDuration] || time <= 0) {
 #ifdef DEBUG_OUT
         NSLog(@"Seeking without duration");
 #endif
@@ -139,9 +139,15 @@
                albumTitle:(NSString*)albumTitle
                    artist:(NSString*)artist {
     NSMutableDictionary *songInfo = [[NSMutableDictionary alloc] init];
-    [songInfo setObject:audioTitle forKey:MPMediaItemPropertyTitle];
-    [songInfo setObject:artist forKey:MPMediaItemPropertyArtist];
-    [songInfo setObject:albumTitle forKey:MPMediaItemPropertyAlbumTitle];
+    if (audioTitle != NULL) {
+        [songInfo setObject:audioTitle forKey:MPMediaItemPropertyTitle];
+    }
+    if (artist != NULL) {
+        [songInfo setObject:artist forKey:MPMediaItemPropertyArtist];
+    }
+    if (albumTitle != NULL) {
+        [songInfo setObject:albumTitle forKey:MPMediaItemPropertyAlbumTitle];
+    }
     if (art != NULL) {
         MPMediaItemArtwork *albumArt = [[MPMediaItemArtwork alloc] initWithImage:art];
         [songInfo setObject:albumArt forKey:MPMediaItemPropertyArtwork];
@@ -160,7 +166,7 @@
                                                       object:nil];
         
         [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                        name:MPMoviePlayerTimedMetadataUpdatedNotification
+                                                        name:MPMoviePlayerPlaybackDidFinishNotification
                                                       object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(finishedPlay:)
@@ -174,7 +180,6 @@
                                                  selector:@selector(changedState:)
                                                      name:MPMoviePlayerNowPlayingMovieDidChangeNotification
                                                    object:mediaPlayer];
-        
         [_delegate readyPlaying];
     }
 }
@@ -199,8 +204,8 @@
             [_fifo put:[_queue deque]];
             if ([_queue isQueueEmpty]) {
                 [_queue enqueArray:[_fifo getReverseList]];
-                [self playPeek];
             }
+            [self playPeek];
             break;
         default:
             @throw @"Unclassified mode";
