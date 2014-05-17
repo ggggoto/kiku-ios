@@ -26,6 +26,8 @@
 
 - (void)initialize {
     _comEngine = [[TTCommunicationEngine alloc]init];
+    //[_comEngine trySearch:@"Mr Children" withPage:1];
+    //[_comEngine tryGetAlbum:@"180252"];
 }
 
 - (void)didReceiveMemoryWarning

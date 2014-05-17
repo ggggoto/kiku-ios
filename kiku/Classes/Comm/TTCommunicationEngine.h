@@ -26,6 +26,9 @@ typedef enum {
 @property (nonatomic, assign) TTCommunicationEngineState state;
 @property (nonatomic, assign) TTCommunicationEngineRequestType type;
 
-- (bool) tryEnqueRequest:(NSString*)urlStr withType:(TTCommunicationEngineRequestType)type;
+- (bool) trySearch:(NSString*)word withPage:(int)page;
+- (bool) tryGetSong:(NSString*)songId;
+- (bool) tryGetAlbum:(NSString*)albumId;
+- (bool) tryGetArtistTop:(NSString*)artistId;
 
 @end

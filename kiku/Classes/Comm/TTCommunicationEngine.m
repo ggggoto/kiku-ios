@@ -9,6 +9,7 @@
 #import "TTCommunicationEngine.h"
 #import "AFJSONRequestOperation.h"
 #import "TTDataSearchResult.h"
+#import "Endpoints.h"
 
 #define TIMEOUT 10
 
@@ -21,6 +22,27 @@
     _state = kCommAvaialble;
     _type = kRequestTypeNotClassified;
     return self;
+}
+
+- (bool) trySearch:(NSString*)word withPage:(int)page {
+    NSString *encodedWord = [word stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *query = [[NSString alloc]initWithFormat:kSearchEndPoint, encodedWord, page];
+    return [self tryEnqueRequest:query withType:kRequestTypeSearch];
+}
+
+- (bool) tryGetSong:(NSString*)songId {
+    NSString *query = [[NSString alloc]initWithFormat:kSongEndPoint, songId];
+    return [self tryEnqueRequest:query withType:kRequestTypeSong];
+}
+
+- (bool) tryGetAlbum:(NSString*)albumId {
+    NSString *query = [[NSString alloc]initWithFormat:kAlbumEndPoint, albumId];
+    return [self tryEnqueRequest:query withType:kRequestTypeAlbum];
+}
+
+- (bool) tryGetArtistTop:(NSString*)artistId {
+    NSString *query = [[NSString alloc]initWithFormat:kArtistTopEndPoint, artistId];
+    return [self tryEnqueRequest:query withType:kRequestTypeArtistTop];
 }
 
 - (bool) tryEnqueRequest:(NSString*)urlStr withType:(TTCommunicationEngineRequestType)type {
@@ -39,14 +61,18 @@
                                                    NSHTTPURLResponse *response,
                                                    id JSON) {
                                              [self successOperation:JSON withType:_type];
-                                             _state = kCommAvaialble;
                                          }
                                          failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON) {
                                              [self errorOperation:error];
-                                             _state = kCommAvaialble;
                                          }];
     [operation start];
     return true;
+}
+
+- (void) errorOperation:(NSError*) error {
+    NSLog(@"%@", error);
+    _state = kCommAvaialble;
+    _type = kRequestTypeNotClassified;
 }
 
 - (void) successOperation:(id)JSON withType:(TTCommunicationEngineRequestType) type {
@@ -65,17 +91,20 @@
             [self processSearchResult:JSON];
             break;
         case kRequestTypeSong:
-            @throw @"process song data";
+            NSLog(@"process song data");
             break;
         case kRequestTypeAlbum:
-            @throw @"process album data";
+            NSLog(@"process album data");
             break;
         case kRequestTypeArtistTop:
-            @throw @"process artist top";
+            NSLog(@"process artist top data");
             break;
         default:
             break;
     }
+
+    _state = kCommAvaialble;
+    _type = kRequestTypeNotClassified;
 }
 
 - (void) processSearchResult:(id)JSON {
@@ -85,10 +114,6 @@
         [result load:content];
         NSLog([result toString]);
     }
-}
-
-- (void) errorOperation:(NSError*) error {
-    NSLog(@"%@", error);
 }
 
 @end
