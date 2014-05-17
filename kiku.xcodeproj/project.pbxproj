@@ -34,7 +34,7 @@
 		45FC1CC01925256D00694056 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC1CB61925256D00694056 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		45FC1CC4192525E700694056 /* TTCommunicationEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC1CC3192525E700694056 /* TTCommunicationEngine.m */; };
 		45FC1CC819252AC800694056 /* TTData.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC1CC719252AC800694056 /* TTData.m */; };
-		45FC1CCB19252BD500694056 /* TTDataSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC1CCA19252BD500694056 /* TTDataSearchResult.m */; };
+		45FC1CCB19252BD500694056 /* TTSongData.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FC1CCA19252BD500694056 /* TTSongData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,9 +93,10 @@
 		45FC1CC3192525E700694056 /* TTCommunicationEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTCommunicationEngine.m; path = Classes/Comm/TTCommunicationEngine.m; sourceTree = "<group>"; };
 		45FC1CC619252AC800694056 /* TTData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTData.h; path = Classes/Data/TTData.h; sourceTree = "<group>"; };
 		45FC1CC719252AC800694056 /* TTData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTData.m; path = Classes/Data/TTData.m; sourceTree = "<group>"; };
-		45FC1CC919252BD500694056 /* TTDataSearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTDataSearchResult.h; path = Classes/Data/TTDataSearchResult.h; sourceTree = "<group>"; };
-		45FC1CCA19252BD500694056 /* TTDataSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTDataSearchResult.m; path = Classes/Data/TTDataSearchResult.m; sourceTree = "<group>"; };
+		45FC1CC919252BD500694056 /* TTSongData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTSongData.h; path = Classes/Data/TTSongData.h; sourceTree = "<group>"; };
+		45FC1CCA19252BD500694056 /* TTSongData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTSongData.m; path = Classes/Data/TTSongData.m; sourceTree = "<group>"; };
 		45FC1CCC1927B41000694056 /* Endpoints.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Endpoints.h; path = Classes/Comm/Endpoints.h; sourceTree = "<group>"; };
+		45FC1CCE1927C30D00694056 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Macro.h; path = Classes/macro/Macro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +156,7 @@
 		45FC1C6E1925251900694056 /* kiku */ = {
 			isa = PBXGroup;
 			children = (
+				45FC1CCD1927C2FE00694056 /* macro */,
 				45FC1CC519252AAA00694056 /* Data */,
 				45FC1CC1192525C800694056 /* Comm */,
 				45FC1CA01925255100694056 /* OSS */,
@@ -250,10 +252,18 @@
 			children = (
 				45FC1CC619252AC800694056 /* TTData.h */,
 				45FC1CC719252AC800694056 /* TTData.m */,
-				45FC1CC919252BD500694056 /* TTDataSearchResult.h */,
-				45FC1CCA19252BD500694056 /* TTDataSearchResult.m */,
+				45FC1CC919252BD500694056 /* TTSongData.h */,
+				45FC1CCA19252BD500694056 /* TTSongData.m */,
 			);
 			name = Data;
+			sourceTree = "<group>";
+		};
+		45FC1CCD1927C2FE00694056 /* macro */ = {
+			isa = PBXGroup;
+			children = (
+				45FC1CCE1927C30D00694056 /* Macro.h */,
+			);
+			name = macro;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,7 +371,7 @@
 				45FC1CC819252AC800694056 /* TTData.m in Sources */,
 				45FC1CBB1925256D00694056 /* AFJSONUtilities.m in Sources */,
 				45FC1C791925251900694056 /* TTAppDelegate.m in Sources */,
-				45FC1CCB19252BD500694056 /* TTDataSearchResult.m in Sources */,
+				45FC1CCB19252BD500694056 /* TTSongData.m in Sources */,
 				45FC1CBF1925256D00694056 /* AFXMLRequestOperation.m in Sources */,
 				45FC1C751925251900694056 /* main.m in Sources */,
 				45FC1CBA1925256D00694056 /* AFJSONRequestOperation.m in Sources */,

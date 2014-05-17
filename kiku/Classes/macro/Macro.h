@@ -1,5 +1,5 @@
 //
-//  Header.h
+//  Macro.h
 //  kiku
 //
 //  Created by TsuzukiTomoaki on 2014/05/18.
@@ -9,6 +9,6 @@
 #ifndef kiku_Header_h
 #define kiku_Header_h
 
-
+#define DEBUG_OUT
 
 #endif

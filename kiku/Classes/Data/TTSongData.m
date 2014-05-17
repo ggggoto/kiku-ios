@@ -6,51 +6,55 @@
 //  Copyright (c) 2014年 TsuzukiTomoaki. All rights reserved.
 //
 
-#import "TTDataSearchResult.h"
+#import "TTSongData.h"
 
-@implementation TTDataSearchResult
+@implementation TTSongData
 
-@synthesize content_id = _content_id;
-@synthesize album_id = _album_id;
-@synthesize album_name = _album_name;
-@synthesize artist_id = _artist_id;
-@synthesize artist_name = _artist_name;
+@synthesize albumId = _albumId;
+@synthesize albumName = _albumName;
+@synthesize artistId = _artistId;
+@synthesize artistName = _artistName;
 @synthesize location = _location;
-@synthesize logo = _logo;
+@synthesize image = _image;
 @synthesize lyric = _lyric;
 @synthesize name = _name;
 
 - (void)load:(NSDictionary*)content {
-    _content_id = [content objectForKey:@"id"];
-    _album_id = [content objectForKey:@"album_id"];
-    _album_name = [content objectForKey:@"album_name"];
-    _artist_id = [content objectForKey:@"artist_id"];
-    _artist_name = [content objectForKey:@"artist_name"];
+    _albumId = [content objectForKey:@"album_id"];
+    _albumName = [content objectForKey:@"album_name"];
+    _artistId = [content objectForKey:@"artist_id"];
+    _artistName = [content objectForKey:@"artist_name"];
     _location = [content objectForKey:@"location"];
-    _logo = [content objectForKey:@"logo"];
+    _image = [content objectForKey:@"logo"];
     _lyric = [content objectForKey:@"lyric"];
     _name = [content objectForKey:@"name"];
 }
 
 - (NSString*) toString {
-    return [NSString stringWithFormat:@"\nid: %@\n"
-                             "album_id: %@\n"
+    return [NSString stringWithFormat:@"\nalbum_id: %@\n"
                            "album_name: %@\n"
                             "artist_id: %@\n"
                           "artist_name: %@\n"
                              "location: %@\n"
-                                 "logo: %@\n"
+                                "image: %@\n"
                                 "lyric: %@\n"
                                  "name: %@",
-                                    _content_id,
-                                    _album_id,
-                                    _album_name,
-                                    _artist_id,
-                                    _artist_name,
+                                    _albumId,
+                                    _albumName,
+                                    _artistId,
+                                    _artistName,
                                     _location,
-                                    _logo,
+                                    _image,
                                     _lyric,
                                     _name];
+}
+
+- (void)setAlbumName:(NSString *)albumName {
+    _albumName = albumName;
+}
+
+- (void)setImage:(NSString *)image {
+    _image = image;
 }
 
 @end

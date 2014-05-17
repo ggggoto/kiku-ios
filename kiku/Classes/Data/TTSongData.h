@@ -8,19 +8,20 @@
 
 #import "TTData.h"
 
-@interface TTDataSearchResult : TTData
+@interface TTSongData : TTData
 
-@property (nonatomic, strong) NSString* content_id;
-@property (nonatomic, strong) NSString* album_id;
-@property (nonatomic, strong) NSString* album_name;
-@property (nonatomic, strong) NSString* artist_id;
-@property (nonatomic, strong) NSString* artist_name;
+@property (nonatomic, strong) NSString* albumId;
+@property (nonatomic, strong) NSString* albumName;
+@property (nonatomic, strong) NSString* artistId;
+@property (nonatomic, strong) NSString* artistName;
 @property (nonatomic, strong) NSString* location;
-@property (nonatomic, strong) NSString* logo;
+@property (nonatomic, strong) NSString* image;
 @property (nonatomic, strong) NSString* lyric;
 @property (nonatomic, strong) NSString* name;
 
 - (void)load:(NSDictionary*)content;
 - (NSString*)toString;
+- (void)setAlbumName:(NSString*)albumName;
+- (void)setImage:(NSString *)image;
 
 @end

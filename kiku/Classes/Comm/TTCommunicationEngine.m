@@ -8,8 +8,9 @@
 
 #import "TTCommunicationEngine.h"
 #import "AFJSONRequestOperation.h"
-#import "TTDataSearchResult.h"
+#import "TTSongData.h"
 #import "Endpoints.h"
+#import "Macro.h"
 
 #define TIMEOUT 10
 
@@ -70,14 +71,14 @@
 }
 
 - (void) errorOperation:(NSError*) error {
+#ifdef DEBUG_OUT
     NSLog(@"%@", error);
+#endif
     _state = kCommAvaialble;
     _type = kRequestTypeNotClassified;
 }
 
 - (void) successOperation:(id)JSON withType:(TTCommunicationEngineRequestType) type {
-    NSLog(@"%@", JSON);
-    
     NSString *status = [JSON objectForKey:@"status"];
     if (![status isEqualToString:@"ok"]) {
         @throw @"status is not ok";
@@ -91,10 +92,10 @@
             [self processSearchResult:JSON];
             break;
         case kRequestTypeSong:
-            NSLog(@"process song data");
+            @throw @"song api process is not implemented";
             break;
         case kRequestTypeAlbum:
-            NSLog(@"process album data");
+            [self processAlbumResult:JSON];
             break;
         case kRequestTypeArtistTop:
             NSLog(@"process artist top data");
@@ -110,9 +111,27 @@
 - (void) processSearchResult:(id)JSON {
     NSArray *data = [JSON objectForKey:@"data"];
     for(NSDictionary *content in data){
-        TTDataSearchResult *result = [[TTDataSearchResult alloc]init];
+        TTSongData *result = [[TTSongData alloc]init];
         [result load:content];
-        NSLog([result toString]);
+#ifdef DEBUG_OUT
+        NSLog(@"%@", [result toString]);
+#endif
+    }
+}
+
+- (void) processAlbumResult:(id)JSON {
+    NSDictionary *albumData = [JSON objectForKey:@"album"];
+    NSString *albumName = [albumData objectForKey:@"title"];
+    NSString *image = [albumData objectForKey:@"album_logo"];
+    NSDictionary *songData = [albumData objectForKey:@"songs"];
+    for(NSDictionary *content in songData){
+        TTSongData *result = [[TTSongData alloc]init];
+        [result load:content];
+        [result setAlbumName:albumName];
+        [result setImage:image];
+#ifdef DEBUG_OUT
+        NSLog(@"%@", [result toString]);
+#endif
     }
 }
 
