@@ -10,11 +10,13 @@
 #import "AFJSONRequestOperation.h"
 #import "TTSongData.h"
 #import "Endpoints.h"
-#import "Macro.h"
+//#import "Macro.h"
 
 #define TIMEOUT 10
 
 @implementation TTCommunicationEngine
+
+@synthesize delegate = _delegate;
 @synthesize state = _state;
 @synthesize type = _type;
 
@@ -109,30 +111,36 @@
 }
 
 - (void) processSearchResult:(id)JSON {
+    NSMutableArray* result = [NSMutableArray array];
     NSArray *data = [JSON objectForKey:@"data"];
     for(NSDictionary *content in data){
-        TTSongData *result = [[TTSongData alloc]init];
-        [result load:content];
+        TTSongData *songData = [[TTSongData alloc]init];
+        [songData load:content];
+        [result addObject:songData];
 #ifdef DEBUG_OUT
-        NSLog(@"%@", [result toString]);
+        NSLog(@"%@", [songData toString]);
 #endif
     }
+    [_delegate recievedSongData:result];
 }
 
 - (void) processAlbumResult:(id)JSON {
+    NSMutableArray* result = [NSMutableArray array];
     NSDictionary *albumData = [JSON objectForKey:@"album"];
     NSString *albumName = [albumData objectForKey:@"title"];
     NSString *image = [albumData objectForKey:@"album_logo"];
     NSDictionary *songData = [albumData objectForKey:@"songs"];
     for(NSDictionary *content in songData){
-        TTSongData *result = [[TTSongData alloc]init];
-        [result load:content];
-        [result setAlbumName:albumName];
-        [result setImage:image];
+        TTSongData *songData = [[TTSongData alloc]init];
+        [songData load:content];
+        [songData setAlbumName:albumName];
+        [songData setImage:image];
+        [result addObject:songData];
 #ifdef DEBUG_OUT
-        NSLog(@"%@", [result toString]);
+        NSLog(@"%@", [songData toString]);
 #endif
     }
+    [_delegate recievedSongData:result];
 }
 
 @end

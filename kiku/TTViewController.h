@@ -10,7 +10,10 @@
 #import "TTCommunicationEngine.h"
 #import "TTAudioEngine.h"
 
-@interface TTViewController : UIViewController
+@interface TTViewController : UIViewController<
+TTCommunicationEngineDelegate,
+TTAudioEngineDelegate
+>
 
 @property (nonatomic, strong) TTCommunicationEngine* comEngine;
 @property (nonatomic, strong) TTAudioEngine *audioEngine;

@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import "TTSongData.h"
+#import "TTQueue.h"
+#import "TTFifo.h"
 
 @protocol TTAudioEngineDelegate
 -(void)readyPlaying;
@@ -28,16 +31,20 @@ typedef enum {
 @property (nonatomic, strong) MPMoviePlayerController *mediaPlayer;
 @property (nonatomic, assign) TTAudioEngineMode mode;
 @property (nonatomic, strong) NSString *currentPlayingUrl;
+@property (nonatomic, strong) TTQueue *queue;
+@property (nonatomic, strong) TTFifo *fifo;
 
+- (MPMoviePlaybackState)getPlaybackState;
 - (void)setMode:(TTAudioEngineMode)mode;
-- (void)play:(NSString*)urlStr;
+- (void)playPeek;
+- (void)resumePlay;
+- (void)pausePlay;
+- (void)playNextSong;
+- (void)pressedBackButton;
+- (void)playPreviousSong;
 - (int)getCurrentPlaybackDuration;
 - (void)seek:(int)time;
-- (void)setLockScreenInfo:(UIImage*)art
-               audioTitle:(NSString*)audioTitle
-               albumTitle:(NSString*)albumTitle
-                   artist:(NSString*)artist;
-- (void)enque:(NSString*)urlStr; //Add info too
-- (void)deque:(NSString*)urlStr;
+- (void)enque:(TTSongData*)songData;
+- (void)flush;
 
 @end

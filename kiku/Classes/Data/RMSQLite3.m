@@ -9,9 +9,9 @@
 #import "RMSQLite3.h"
 #import <sqlite3.h>
 
-#define DBNAME @"RSS.db"
-#define TABLE_NAME_PLAYLIST @"playrlist"
-#define TABLE_NAME_SONG @"song"
+#define kDbName @"RSS.db"
+#define kTableNamePlaylist @"playrlist"
+#define kTableNameSong @"song"
 
 @implementation RMSQLite3
 
@@ -44,7 +44,7 @@
 - (NSString *) dataFilePath {
     NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES );
     NSString *dir   = [paths objectAtIndex:0];
-    NSString *databasePath = [[NSString alloc] initWithString: [dir stringByAppendingPathComponent: DBNAME]];
+    NSString *databasePath = [[NSString alloc] initWithString: [dir stringByAppendingPathComponent: kDbName]];
     return databasePath;
 }
 
@@ -57,8 +57,8 @@
         if (sqlite3_exec(_database, "PRAGMA CACHE_SIZE=10;", NULL, NULL, NULL) != SQLITE_OK) {
             NSAssert1(0, @"Error: failed to set cache size with message '%s'.", sqlite3_errmsg(_database));
         }
-        [self createTable:TABLE_NAME_PLAYLIST];
-        [self createTable:TABLE_NAME_SONG];
+        [self createTable:kTableNamePlaylist];
+        [self createTable:kTableNameSong];
     }
 }
 

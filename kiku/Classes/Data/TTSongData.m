@@ -57,4 +57,19 @@
     _image = image;
 }
 
+- (id)copyWithZone:(NSZone*)zone {
+    TTSongData *copy = [[[self class] allocWithZone:zone] init];
+    if (copy) {
+        copy->_albumId = [_albumId copyWithZone:zone];
+        copy->_albumName = [_albumName copyWithZone:zone];
+        copy->_artistId = [_artistId copyWithZone:zone];
+        copy->_artistName = [_artistName copyWithZone:zone];
+        copy->_location = [_location copyWithZone:zone];
+        copy->_image = [_image copyWithZone:zone];
+        copy->_lyric = [_lyric copyWithZone:zone];
+        copy->_name = [_name copyWithZone:zone];
+    }
+    return copy;
+}
+
 @end

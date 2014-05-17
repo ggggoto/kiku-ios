@@ -11,6 +11,8 @@
 		45A8B4401927D1FC00013B83 /* RMSQLite3.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A8B43F1927D1FC00013B83 /* RMSQLite3.m */; };
 		45A8B4421927D20800013B83 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A8B4411927D20800013B83 /* libsqlite3.0.dylib */; };
 		45D1FF071927DFAA006A1F12 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45D1FF061927DFAA006A1F12 /* MediaPlayer.framework */; };
+		45D1FF0F192809FC006A1F12 /* TTQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D1FF0E192809FC006A1F12 /* TTQueue.m */; };
+		45D1FF1219280B4E006A1F12 /* TTFifo.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D1FF1119280B4E006A1F12 /* TTFifo.m */; };
 		45FC1C691925251900694056 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45FC1C681925251900694056 /* Foundation.framework */; };
 		45FC1C6B1925251900694056 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45FC1C6A1925251900694056 /* CoreGraphics.framework */; };
 		45FC1C6D1925251900694056 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45FC1C6C1925251900694056 /* UIKit.framework */; };
@@ -61,6 +63,10 @@
 		45A8B43F1927D1FC00013B83 /* RMSQLite3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMSQLite3.m; path = Classes/Data/RMSQLite3.m; sourceTree = "<group>"; };
 		45A8B4411927D20800013B83 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		45D1FF061927DFAA006A1F12 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		45D1FF0D192809FC006A1F12 /* TTQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTQueue.h; path = Classes/Util/TTQueue.h; sourceTree = "<group>"; };
+		45D1FF0E192809FC006A1F12 /* TTQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTQueue.m; path = Classes/Util/TTQueue.m; sourceTree = "<group>"; };
+		45D1FF1019280B4E006A1F12 /* TTFifo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTFifo.h; path = Classes/Util/TTFifo.h; sourceTree = "<group>"; };
+		45D1FF1119280B4E006A1F12 /* TTFifo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTFifo.m; path = Classes/Util/TTFifo.m; sourceTree = "<group>"; };
 		45FC1C651925251900694056 /* kiku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kiku.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45FC1C681925251900694056 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		45FC1C6A1925251900694056 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -144,6 +150,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45D1FF0C192809DF006A1F12 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				45D1FF0D192809FC006A1F12 /* TTQueue.h */,
+				45D1FF0E192809FC006A1F12 /* TTQueue.m */,
+				45D1FF1019280B4E006A1F12 /* TTFifo.h */,
+				45D1FF1119280B4E006A1F12 /* TTFifo.m */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
 		45FC1C5C1925251900694056 = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +198,7 @@
 		45FC1C6E1925251900694056 /* kiku */ = {
 			isa = PBXGroup;
 			children = (
+				45D1FF0C192809DF006A1F12 /* Util */,
 				45FC1CD11927C91200694056 /* Audio */,
 				45FC1CCD1927C2FE00694056 /* macro */,
 				45FC1CC519252AAA00694056 /* Data */,
@@ -417,6 +435,8 @@
 				45FC1C751925251900694056 /* main.m in Sources */,
 				45FC1CBA1925256D00694056 /* AFJSONRequestOperation.m in Sources */,
 				45FC1CB81925256D00694056 /* AFHTTPRequestOperation.m in Sources */,
+				45D1FF0F192809FC006A1F12 /* TTQueue.m in Sources */,
+				45D1FF1219280B4E006A1F12 /* TTFifo.m in Sources */,
 				45FC1C821925251900694056 /* TTViewController.m in Sources */,
 				45FC1CB71925256D00694056 /* AFHTTPClient.m in Sources */,
 				45FC1CBD1925256D00694056 /* AFPropertyListRequestOperation.m in Sources */,

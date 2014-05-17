@@ -8,7 +8,7 @@
 
 #import "TTData.h"
 
-@interface TTSongData : TTData
+@interface TTSongData : TTData<NSCopying>
 
 @property (nonatomic, strong) NSString* albumId;
 @property (nonatomic, strong) NSString* albumName;

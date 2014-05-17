@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol TTCommunicationEngineDelegate
+-(void)recievedSongData:(NSMutableArray*)data;
+@end
+
 @interface TTCommunicationEngine : NSObject
 
 typedef enum {
@@ -23,6 +27,7 @@ typedef enum {
     kRequestTypeArtistTop,
 } TTCommunicationEngineRequestType;
 
+@property (nonatomic, strong) id<TTCommunicationEngineDelegate> delegate;
 @property (nonatomic, assign) TTCommunicationEngineState state;
 @property (nonatomic, assign) TTCommunicationEngineRequestType type;
 
