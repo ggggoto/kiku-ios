@@ -10,6 +10,22 @@
 
 @interface TTCommunicationEngine : NSObject
 
-- (void) readJson;
+typedef enum {
+    kCommAvaialble,
+    kCommBusy,
+} TTCommunicationEngineState;
+
+typedef enum {
+    kRequestTypeNotClassified,
+    kRequestTypeSearch,
+    kRequestTypeSong,
+    kRequestTypeAlbum,
+    kRequestTypeArtistTop,
+} TTCommunicationEngineRequestType;
+
+@property (nonatomic, assign) TTCommunicationEngineState state;
+@property (nonatomic, assign) TTCommunicationEngineRequestType type;
+
+- (bool) tryEnqueRequest:(NSString*)urlStr withType:(TTCommunicationEngineRequestType)type;
 
 @end

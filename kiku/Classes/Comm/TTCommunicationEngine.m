@@ -13,33 +13,72 @@
 #define TIMEOUT 10
 
 @implementation TTCommunicationEngine
+@synthesize state = _state;
+@synthesize type = _type;
 
-- (void) readJson {
-    NSString *apiUrl = @"http://api.xiami.com/app/android/search-part?key=Kiroro&type=songs&page=1";
-    NSString *apiUrl2 =@"http://api.xiami.com/app/android/search-part?key=Atomic&type=albums&page=1";
-    NSURL *url = [NSURL URLWithString:apiUrl];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLCacheStorageAllowedInMemoryOnly timeoutInterval:TIMEOUT];
+-(id) init {
+    self = [super init];
+    _state = kCommAvaialble;
+    _type = kRequestTypeNotClassified;
+    return self;
+}
+
+- (bool) tryEnqueRequest:(NSString*)urlStr withType:(TTCommunicationEngineRequestType)type {
+    if (_state != kCommAvaialble) {
+        return false;
+    }
     
+    _type = type;
+    _state = kCommBusy;
+    
+    NSURL *url = [NSURL URLWithString:urlStr];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLCacheStorageAllowedInMemoryOnly timeoutInterval:TIMEOUT];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation
                                          JSONRequestOperationWithRequest:request
                                          success:^(NSURLRequest *request,
                                                    NSHTTPURLResponse *response,
                                                    id JSON) {
-                                             [self successOperation:JSON];
+                                             [self successOperation:JSON withType:_type];
+                                             _state = kCommAvaialble;
                                          }
                                          failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON) {
                                              [self errorOperation:error];
+                                             _state = kCommAvaialble;
                                          }];
     [operation start];
+    return true;
 }
 
-- (void) successOperation:(id)JSON {
+- (void) successOperation:(id)JSON withType:(TTCommunicationEngineRequestType) type {
     NSLog(@"%@", JSON);
     
     NSString *status = [JSON objectForKey:@"status"];
     if (![status isEqualToString:@"ok"]) {
         @throw @"status is not ok";
     }
+    
+    switch (type) {
+        case kRequestTypeNotClassified:
+            @throw @"type not clas";
+            break;
+        case kRequestTypeSearch:
+            [self processSearchResult:JSON];
+            break;
+        case kRequestTypeSong:
+            @throw @"process song data";
+            break;
+        case kRequestTypeAlbum:
+            @throw @"process album data";
+            break;
+        case kRequestTypeArtistTop:
+            @throw @"process artist top";
+            break;
+        default:
+            break;
+    }
+}
+
+- (void) processSearchResult:(id)JSON {
     NSArray *data = [JSON objectForKey:@"data"];
     for(NSDictionary *content in data){
         TTDataSearchResult *result = [[TTDataSearchResult alloc]init];

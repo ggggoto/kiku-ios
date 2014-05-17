@@ -11,10 +11,11 @@
 @implementation TTData
 
 - (void)load:(id)JSON {
+    @throw @"not implemented";
 }
 
 - (NSString*) toString {
-    return NULL;
+    @throw @"not implemented";
 }
 
 @end

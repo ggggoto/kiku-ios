@@ -95,6 +95,7 @@
 		45FC1CC719252AC800694056 /* TTData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTData.m; path = Classes/Data/TTData.m; sourceTree = "<group>"; };
 		45FC1CC919252BD500694056 /* TTDataSearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTDataSearchResult.h; path = Classes/Data/TTDataSearchResult.h; sourceTree = "<group>"; };
 		45FC1CCA19252BD500694056 /* TTDataSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTDataSearchResult.m; path = Classes/Data/TTDataSearchResult.m; sourceTree = "<group>"; };
+		45FC1CCC1927B41000694056 /* Endpoints.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Endpoints.h; path = Classes/Comm/Endpoints.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +240,7 @@
 			children = (
 				45FC1CC2192525E700694056 /* TTCommunicationEngine.h */,
 				45FC1CC3192525E700694056 /* TTCommunicationEngine.m */,
+				45FC1CCC1927B41000694056 /* Endpoints.h */,
 			);
 			name = Comm;
 			sourceTree = "<group>";
@@ -583,6 +585,7 @@
 				45FC1C9C1925251900694056 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		45FC1C9D1925251900694056 /* Build configuration list for PBXNativeTarget "kikuTests" */ = {
 			isa = XCConfigurationList;
@@ -591,6 +594,7 @@
 				45FC1C9F1925251900694056 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

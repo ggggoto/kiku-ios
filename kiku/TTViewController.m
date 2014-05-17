@@ -26,7 +26,6 @@
 
 - (void)initialize {
     _comEngine = [[TTCommunicationEngine alloc]init];
-    [_comEngine readJson];
 }
 
 - (void)didReceiveMemoryWarning
