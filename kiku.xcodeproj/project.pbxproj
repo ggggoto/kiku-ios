@@ -10,6 +10,9 @@
 		45A8B43D1927D14800013B83 /* TTUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A8B43C1927D14800013B83 /* TTUserData.m */; };
 		45A8B4401927D1FC00013B83 /* RMSQLite3.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A8B43F1927D1FC00013B83 /* RMSQLite3.m */; };
 		45A8B4421927D20800013B83 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A8B4411927D20800013B83 /* libsqlite3.0.dylib */; };
+		45D10097192887E1006A1F12 /* HTAutocompleteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D10092192887E1006A1F12 /* HTAutocompleteManager.m */; };
+		45D10098192887E1006A1F12 /* HTAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D10094192887E1006A1F12 /* HTAutocompleteTextField.m */; };
+		45D1009C1928892D006A1F12 /* TTMasterData.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D1009B1928892D006A1F12 /* TTMasterData.m */; };
 		45D1FF071927DFAA006A1F12 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45D1FF061927DFAA006A1F12 /* MediaPlayer.framework */; };
 		45D1FF0F192809FC006A1F12 /* TTQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D1FF0E192809FC006A1F12 /* TTQueue.m */; };
 		45D1FF1219280B4E006A1F12 /* TTFifo.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D1FF1119280B4E006A1F12 /* TTFifo.m */; };
@@ -64,6 +67,12 @@
 		45A8B43E1927D1FC00013B83 /* RMSQLite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMSQLite3.h; path = Classes/Data/RMSQLite3.h; sourceTree = "<group>"; };
 		45A8B43F1927D1FC00013B83 /* RMSQLite3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMSQLite3.m; path = Classes/Data/RMSQLite3.m; sourceTree = "<group>"; };
 		45A8B4411927D20800013B83 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		45D10091192887E1006A1F12 /* HTAutocompleteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTAutocompleteManager.h; path = Classes/OSS/HTAutocomplete/HTAutocompleteManager.h; sourceTree = "<group>"; };
+		45D10092192887E1006A1F12 /* HTAutocompleteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTAutocompleteManager.m; path = Classes/OSS/HTAutocomplete/HTAutocompleteManager.m; sourceTree = "<group>"; };
+		45D10093192887E1006A1F12 /* HTAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTAutocompleteTextField.h; path = Classes/OSS/HTAutocomplete/HTAutocompleteTextField.h; sourceTree = "<group>"; };
+		45D10094192887E1006A1F12 /* HTAutocompleteTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTAutocompleteTextField.m; path = Classes/OSS/HTAutocomplete/HTAutocompleteTextField.m; sourceTree = "<group>"; };
+		45D1009A1928892D006A1F12 /* TTMasterData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTMasterData.h; path = Classes/Data/TTMasterData.h; sourceTree = "<group>"; };
+		45D1009B1928892D006A1F12 /* TTMasterData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTMasterData.m; path = Classes/Data/TTMasterData.m; sourceTree = "<group>"; };
 		45D1FF061927DFAA006A1F12 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		45D1FF0D192809FC006A1F12 /* TTQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTQueue.h; path = Classes/Util/TTQueue.h; sourceTree = "<group>"; };
 		45D1FF0E192809FC006A1F12 /* TTQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTQueue.m; path = Classes/Util/TTQueue.m; sourceTree = "<group>"; };
@@ -156,6 +165,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45D10090192887D7006A1F12 /* HTAutocomplete */ = {
+			isa = PBXGroup;
+			children = (
+				45D10091192887E1006A1F12 /* HTAutocompleteManager.h */,
+				45D10092192887E1006A1F12 /* HTAutocompleteManager.m */,
+				45D10093192887E1006A1F12 /* HTAutocompleteTextField.h */,
+				45D10094192887E1006A1F12 /* HTAutocompleteTextField.m */,
+			);
+			name = HTAutocomplete;
+			sourceTree = "<group>";
+		};
 		45D1FF0C192809DF006A1F12 /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +276,7 @@
 		45FC1CA01925255100694056 /* OSS */ = {
 			isa = PBXGroup;
 			children = (
+				45D10090192887D7006A1F12 /* HTAutocomplete */,
 				45FC1CA11925255E00694056 /* AFNetworking */,
 			);
 			name = OSS;
@@ -304,6 +325,8 @@
 		45FC1CC519252AAA00694056 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				45D1009A1928892D006A1F12 /* TTMasterData.h */,
+				45D1009B1928892D006A1F12 /* TTMasterData.m */,
 				45A8B43E1927D1FC00013B83 /* RMSQLite3.h */,
 				45A8B43F1927D1FC00013B83 /* RMSQLite3.m */,
 				45FC1CC619252AC800694056 /* TTData.h */,
@@ -441,16 +464,19 @@
 				45FC1CBB1925256D00694056 /* AFJSONUtilities.m in Sources */,
 				45A8B43D1927D14800013B83 /* TTUserData.m in Sources */,
 				45D1FF1519281639006A1F12 /* RMImageCachePool.m in Sources */,
+				45D10098192887E1006A1F12 /* HTAutocompleteTextField.m in Sources */,
 				45FC1C791925251900694056 /* TTAppDelegate.m in Sources */,
 				45FC1CCB19252BD500694056 /* TTSongData.m in Sources */,
 				45FC1CBF1925256D00694056 /* AFXMLRequestOperation.m in Sources */,
 				45FC1C751925251900694056 /* main.m in Sources */,
 				45FC1CBA1925256D00694056 /* AFJSONRequestOperation.m in Sources */,
+				45D1009C1928892D006A1F12 /* TTMasterData.m in Sources */,
 				45FC1CB81925256D00694056 /* AFHTTPRequestOperation.m in Sources */,
 				45D1FF0F192809FC006A1F12 /* TTQueue.m in Sources */,
 				45D1FF1219280B4E006A1F12 /* TTFifo.m in Sources */,
 				45FC1C821925251900694056 /* TTViewController.m in Sources */,
 				45FC1CB71925256D00694056 /* AFHTTPClient.m in Sources */,
+				45D10097192887E1006A1F12 /* HTAutocompleteManager.m in Sources */,
 				45FC1CBD1925256D00694056 /* AFPropertyListRequestOperation.m in Sources */,
 				45FC1CC4192525E700694056 /* TTCommunicationEngine.m in Sources */,
 				45FC1CBC1925256D00694056 /* AFNetworkActivityIndicatorManager.m in Sources */,

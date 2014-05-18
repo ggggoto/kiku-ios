@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TTCommunicationEngine.h"
 #import "TTAudioEngine.h"
+#import "HTAutocompleteTextField.h"
 
 @interface TTViewController : UIViewController<
 TTCommunicationEngineDelegate,
@@ -17,5 +18,6 @@ TTAudioEngineDelegate
 
 @property (nonatomic, strong) TTCommunicationEngine* comEngine;
 @property (nonatomic, strong) TTAudioEngine *audioEngine;
+@property (nonatomic, strong) HTAutocompleteTextField *textField; //For debug
 
 @end

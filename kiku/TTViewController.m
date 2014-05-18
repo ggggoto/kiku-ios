@@ -7,6 +7,8 @@
 //
 
 #import "TTViewController.h"
+#import "HTAutocompleteManager.h"
+#import "TTMasterData.h"
 
 @interface TTViewController ()
 
@@ -16,6 +18,7 @@
 
 @synthesize comEngine = _comEngine;
 @synthesize audioEngine = _audioEngine;
+@synthesize textField = _textField;
 
 - (void)viewDidLoad
 {
@@ -29,12 +32,29 @@
     [btn addTarget:self action:@selector(hoge:)forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:btn];
     
+    [self setAutoCompTextField];
+    
     [self initialize];
 }
 
 //for debug
 -(void)hoge:(UIButton*)button{
     [_audioEngine seek:[_audioEngine getCurrentPlaybackDuration] - 5];
+}
+
+- (void)setAutoCompTextField {
+    _textField = [[HTAutocompleteTextField alloc]initWithFrame:CGRectMake(20,
+                                                                          200,
+                                                                          200,
+                                                                          50)];
+    _textField.autocompleteDataSource = [HTAutocompleteManager sharedManager];
+    _textField.autocompleteType = HTAutocompleteTypeEmail;
+    [_textField setBorderStyle:UITextBorderStyleBezel];
+    NSString *placeHolder = [[TTMasterData sharedInstance] getText:SEARCH_PLACEHOLDER_KEY];
+    [_textField setPlaceholder:placeHolder];
+    //_textField.delegate = self;
+    
+    [self.view addSubview:_textField];
 }
 
 - (void)initialize {
