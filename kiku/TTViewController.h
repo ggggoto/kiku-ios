@@ -9,12 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "TTCommunicationEngine.h"
 #import "TTAudioEngine.h"
+#import "TTMainView.h"
 
 @interface TTViewController : UIViewController<
 TTCommunicationEngineDelegate,
-TTAudioEngineDelegate
+TTAudioEngineDelegate,
+TTMainViewDelegate
 >
 
+@property (nonatomic, strong) TTMainView* mainView;
 @property (nonatomic, strong) TTCommunicationEngine* comEngine;
 @property (nonatomic, strong) TTAudioEngine *audioEngine;
 

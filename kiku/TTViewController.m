@@ -7,6 +7,7 @@
 //
 
 #import "TTViewController.h"
+#import "ViewConstants.h"
 
 @interface TTViewController ()
 
@@ -16,32 +17,25 @@
 
 @synthesize comEngine = _comEngine;
 @synthesize audioEngine = _audioEngine;
+@synthesize mainView = _mainView;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
-    //for debug
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    btn.frame = CGRectMake(10, 100, 100, 50);
-    [btn setTitle:@"早送り" forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(hoge:)forControlEvents:UIControlEventTouchDown];
-    [self.view addSubview:btn];
-    
-    [self initialize];
+    [self initializeEngine];
+    [self initializeMainView];
 }
 
-//for debug
--(void)hoge:(UIButton*)button{
-    [_audioEngine seek:[_audioEngine getCurrentPlaybackDuration] - 5];
+- (void)initializeMainView {
+    _mainView = [[TTMainView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_FRAME.size.width, SCREEN_FRAME.size.height)];
+    [_mainView setDelegate:self];
+    self.view = _mainView;
 }
 
-- (void)initialize {
+- (void)initializeEngine {
     _comEngine = [[TTCommunicationEngine alloc]init];
     _comEngine.delegate = self;
-    [_comEngine trySearch:@"Rage against the machine" withPage:1];
-    //[_comEngine tryGetAlbum:@"180252"];
     
     _audioEngine = [[TTAudioEngine alloc] init];
     [_audioEngine setMode:kAudioAlbumRepeat];
@@ -55,14 +49,27 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark communication engine
 - (void)recievedSongData:(NSMutableArray *)data {
+    [_mainView recieveContentsArray:data];
+    
+    [_audioEngine flush];
     for (TTSongData* songData in data) {
-        NSLog(songData.name);
         [_audioEngine enque:songData];
     }
     [_audioEngine playPeek];
 }
 
+#pragma mark audio engine
+- (void)readyPlaying {
+    
+}
+
+- (void)updateCurrentPlaybackTime:(int)currentPlaybackTime {
+    
+}
+
+#pragma mark background play
 -(void)remoteControlReceivedWithEvent:(UIEvent *)event{
     switch (event.subtype) {
         case UIEventSubtypeRemoteControlPlay:
@@ -96,5 +103,10 @@
     }
 }
 
+#pragma mark mainview
+-(void)search:(NSString *)word {
+    [_mainView clearList];
+    [_comEngine trySearch:word withPage:1];
+}
 
 @end
