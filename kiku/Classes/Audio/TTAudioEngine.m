@@ -84,6 +84,9 @@
 }
 
 - (void)play:(NSString*)urlStr {
+    if (_mediaPlayer != NULL) {
+        _mediaPlayer = NULL;
+    }
     _mediaPlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString: urlStr]];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerLoadStateDidChangeNotification object:nil];
