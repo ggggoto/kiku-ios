@@ -10,6 +10,9 @@
 
 @implementation TTUserData
 
+@synthesize currentWord = _currentWord;
+@synthesize page = _page;
+
 - (id)init {
     [self doesNotRecognizeSelector:_cmd];
     return nil;
@@ -31,6 +34,11 @@
 
     }
     return self;
+}
+
+- (void)setNewWord:(NSString*)word {
+    _currentWord = word;
+    _page = 1;
 }
 
 @end

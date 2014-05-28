@@ -10,6 +10,7 @@
 
 @protocol TTCommunicationEngineDelegate
 -(void)recievedSongData:(NSMutableArray*)data;
+-(void)errorReceived;
 @end
 
 @interface TTCommunicationEngine : NSObject

@@ -109,5 +109,8 @@
     return s;
 }
 
++(BOOL)stringIsNilOrEmpty:(NSString*)aString {
+    return !(aString && aString.length);
+}
 
 @end

@@ -76,6 +76,7 @@
 #ifdef DEBUG_OUT
     NSLog(@"%@", error);
 #endif
+    [_delegate errorReceived];
     _state = kCommAvaialble;
     _type = kRequestTypeNotClassified;
 }

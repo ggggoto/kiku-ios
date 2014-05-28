@@ -12,4 +12,9 @@
 
 + (TTUserData*)sharedInstance;
 
+@property (nonatomic, strong) NSString* currentWord;
+@property (nonatomic, assign) int page;
+
+- (void)setNewWord:(NSString*)word;
+
 @end

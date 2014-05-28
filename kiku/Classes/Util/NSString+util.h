@@ -16,5 +16,6 @@
 + (NSString*)getFilePath:(NSString*)s;
 + (NSString*)getImageFilePath:(NSString*)s;
 + (NSString*)getMasterImageFilePath:(NSString*)s;
++ (BOOL)stringIsNilOrEmpty:(NSString*)aString;
 
 @end

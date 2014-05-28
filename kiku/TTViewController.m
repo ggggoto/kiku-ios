@@ -7,8 +7,9 @@
 //
 
 #import "TTViewController.h"
-#import "HTAutocompleteManager.h"
 #import "TTMasterData.h"
+#import "TTUserData.h"
+#import "TTViewConstants.h"
 
 @interface TTViewController ()
 
@@ -18,7 +19,12 @@
 
 @synthesize comEngine = _comEngine;
 @synthesize audioEngine = _audioEngine;
-@synthesize textField = _textField;
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 
 - (void)viewDidLoad
 {
@@ -30,11 +36,13 @@
     btn.frame = CGRectMake(10, 100, 100, 50);
     [btn setTitle:@"早送り" forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(hoge:)forControlEvents:UIControlEventTouchDown];
-    [self.view addSubview:btn];
+    //[self.view addSubview:btn];
     
-    [self setAutoCompTextField];
+    [self initializeCommEngine];
+    [self initializeAudioEngine];
     
-    [self initialize];
+    [self initializeMainView];
+    
 }
 
 //for debug
@@ -42,45 +50,56 @@
     [_audioEngine seek:[_audioEngine getCurrentPlaybackDuration] - 5];
 }
 
-- (void)setAutoCompTextField {
-    _textField = [[HTAutocompleteTextField alloc]initWithFrame:CGRectMake(20,
-                                                                          200,
-                                                                          200,
-                                                                          50)];
-    _textField.autocompleteDataSource = [HTAutocompleteManager sharedManager];
-    _textField.autocompleteType = HTAutocompleteTypeEmail;
-    [_textField setBorderStyle:UITextBorderStyleBezel];
-    NSString *placeHolder = [[TTMasterData sharedInstance] getText:SEARCH_PLACEHOLDER_KEY];
-    [_textField setPlaceholder:placeHolder];
-    //_textField.delegate = self;
-    
-    [self.view addSubview:_textField];
-}
-
-- (void)initialize {
+- (void)initializeCommEngine {
     _comEngine = [[TTCommunicationEngine alloc]init];
     _comEngine.delegate = self;
-    [_comEngine trySearch:@"Rage against the machine" withPage:1];
+    //[_comEngine trySearch:@"Rage against the machine" withPage:1];
     //[_comEngine tryGetAlbum:@"180252"];
-    
+}
+
+- (void)initializeAudioEngine {
     _audioEngine = [[TTAudioEngine alloc] init];
     [_audioEngine setMode:kAudioAlbumRepeat];
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     [self becomeFirstResponder];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)initializeMainView {
+    _mainView = [[TTMainView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_FRAME.size.width, SCREEN_FRAME.size.height)];
+    _mainView.delegate = self;
+    [self.view addSubview:_mainView];
+}
+
+- (void)showAlertView {
+    UIAlertView *alert =
+    [[UIAlertView alloc] initWithTitle:[[TTMasterData sharedInstance].text objectForKey:COMM_ALERT_TITLE_KEY]
+                               message:[[TTMasterData sharedInstance].text objectForKey:COMM_ALERT_KEY]
+                              delegate:nil
+                     cancelButtonTitle:[[TTMasterData sharedInstance].text objectForKey:COMM_ALERT_CONFIRMATION_KEY]
+                     otherButtonTitles:nil];
+    [alert show];
 }
 
 - (void)recievedSongData:(NSMutableArray *)data {
+    for (TTSongData* songData in data) {
+        if (_mainView.listContentView != NULL) {
+            return;
+        }
+        [_mainView initializeListContentView:songData];
+    }
+    //TODO Update list here
+    
+    /*
     for (TTSongData* songData in data) {
         NSLog(songData.name);
         [_audioEngine enque:songData];
     }
     [_audioEngine playPeek];
+    */
+}
+
+- (void)errorReceived {
+    [self showAlertView];
 }
 
 -(void)remoteControlReceivedWithEvent:(UIEvent *)event{
@@ -116,5 +135,14 @@
     }
 }
 
+#pragma mark Header
+- (void)headerSearchPressed:(NSString *)word {
+    if ([_comEngine trySearch:word withPage:1]) {
+        [[TTUserData sharedInstance] setNewWord:word];
+        [TTUserData sharedInstance].page = 1;
+    } else {
+        [self showAlertView];
+    }
+}
 
 @end
