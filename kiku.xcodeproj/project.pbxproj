@@ -10,6 +10,8 @@
 		45A8B43D1927D14800013B83 /* TTUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A8B43C1927D14800013B83 /* TTUserData.m */; };
 		45A8B4401927D1FC00013B83 /* RMSQLite3.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A8B43F1927D1FC00013B83 /* RMSQLite3.m */; };
 		45A8B4421927D20800013B83 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A8B4411927D20800013B83 /* libsqlite3.0.dylib */; };
+		45A937A119363D7600F2C4C4 /* TTScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A937A019363D7600F2C4C4 /* TTScrollView.m */; };
+		45A937A41936482300F2C4C4 /* TTShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A937A31936482300F2C4C4 /* TTShadowView.m */; };
 		45D10097192887E1006A1F12 /* HTAutocompleteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D10092192887E1006A1F12 /* HTAutocompleteManager.m */; };
 		45D10098192887E1006A1F12 /* HTAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D10094192887E1006A1F12 /* HTAutocompleteTextField.m */; };
 		45D1009C1928892D006A1F12 /* TTMasterData.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D1009B1928892D006A1F12 /* TTMasterData.m */; };
@@ -84,6 +86,10 @@
 		45A8B43E1927D1FC00013B83 /* RMSQLite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMSQLite3.h; path = Classes/Data/RMSQLite3.h; sourceTree = "<group>"; };
 		45A8B43F1927D1FC00013B83 /* RMSQLite3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMSQLite3.m; path = Classes/Data/RMSQLite3.m; sourceTree = "<group>"; };
 		45A8B4411927D20800013B83 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		45A9379F19363D7600F2C4C4 /* TTScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTScrollView.h; path = Classes/View/TTScrollView.h; sourceTree = "<group>"; };
+		45A937A019363D7600F2C4C4 /* TTScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTScrollView.m; path = Classes/View/TTScrollView.m; sourceTree = "<group>"; };
+		45A937A21936482300F2C4C4 /* TTShadowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTShadowView.h; path = Classes/View/TTShadowView.h; sourceTree = "<group>"; };
+		45A937A31936482300F2C4C4 /* TTShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTShadowView.m; path = Classes/View/TTShadowView.m; sourceTree = "<group>"; };
 		45D10091192887E1006A1F12 /* HTAutocompleteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTAutocompleteManager.h; path = Classes/OSS/HTAutocomplete/HTAutocompleteManager.h; sourceTree = "<group>"; };
 		45D10092192887E1006A1F12 /* HTAutocompleteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTAutocompleteManager.m; path = Classes/OSS/HTAutocomplete/HTAutocompleteManager.m; sourceTree = "<group>"; };
 		45D10093192887E1006A1F12 /* HTAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTAutocompleteTextField.h; path = Classes/OSS/HTAutocomplete/HTAutocompleteTextField.h; sourceTree = "<group>"; };
@@ -413,10 +419,14 @@
 				45FD1C231932255E005AA91F /* TTButton.m */,
 				45FD1C1E19322024005AA91F /* TTViewBase.h */,
 				45FD1C1F19322024005AA91F /* TTViewBase.m */,
+				45A937A21936482300F2C4C4 /* TTShadowView.h */,
+				45A937A31936482300F2C4C4 /* TTShadowView.m */,
 				45FD1C1B1932201A005AA91F /* TTHeaderView.h */,
 				45FD1C1C1932201A005AA91F /* TTHeaderView.m */,
 				45FD1C3E193241CB005AA91F /* TTListContentView.h */,
 				45FD1C3F193241CB005AA91F /* TTListContentView.m */,
+				45A9379F19363D7600F2C4C4 /* TTScrollView.h */,
+				45A937A019363D7600F2C4C4 /* TTScrollView.m */,
 				45FD1C2519322609005AA91F /* TTMainView.h */,
 				45FD1C2619322609005AA91F /* TTMainView.m */,
 			);
@@ -607,6 +617,7 @@
 				45FD1C4C19324D62005AA91F /* RMLoadingCommon.m in Sources */,
 				45FD1C4A19324D62005AA91F /* RMLoadingAnimation.m in Sources */,
 				45FC1C791925251900694056 /* TTAppDelegate.m in Sources */,
+				45A937A119363D7600F2C4C4 /* TTScrollView.m in Sources */,
 				45FC1CCB19252BD500694056 /* TTSongData.m in Sources */,
 				45FD1C241932255E005AA91F /* TTButton.m in Sources */,
 				45FD1C2719322609005AA91F /* TTMainView.m in Sources */,
@@ -623,6 +634,7 @@
 				45FC1CB71925256D00694056 /* AFHTTPClient.m in Sources */,
 				45D10097192887E1006A1F12 /* HTAutocompleteManager.m in Sources */,
 				45FC1CBD1925256D00694056 /* AFPropertyListRequestOperation.m in Sources */,
+				45A937A41936482300F2C4C4 /* TTShadowView.m in Sources */,
 				45FC1CC4192525E700694056 /* TTCommunicationEngine.m in Sources */,
 				45FC1CBC1925256D00694056 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				45A8B4401927D1FC00013B83 /* RMSQLite3.m in Sources */,

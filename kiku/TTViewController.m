@@ -81,12 +81,7 @@
 }
 
 - (void)recievedSongData:(NSMutableArray *)data {
-    for (TTSongData* songData in data) {
-        if (_mainView.listContentView != NULL) {
-            return;
-        }
-        [_mainView initializeListContentView:songData];
-    }
+    [_mainView recievedSongData:data];
     //TODO Update list here
     
     /*
@@ -138,6 +133,7 @@
 #pragma mark Header
 - (void)headerSearchPressed:(NSString *)word {
     if ([_comEngine trySearch:word withPage:1]) {
+        [_mainView clearSongs];
         [[TTUserData sharedInstance] setNewWord:word];
         [TTUserData sharedInstance].page = 1;
     } else {

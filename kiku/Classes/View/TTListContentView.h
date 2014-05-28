@@ -10,8 +10,14 @@
 #import "TTSongData.h"
 #import "RMLoadingCommon.h"
 
+@protocol TTListContentViewDelegate
+-(void)finishedShowAnimation:(UIView*)content;
+-(void)finishedHideAnimation:(UIView*)content;
+@end
+
 @interface TTListContentView : TTViewBase <TTSongDataDelegate>
 
+@property (nonatomic, strong)id<TTListContentViewDelegate>delegate;
 @property (nonatomic, strong)UIImageView *thumbnail;
 @property (nonatomic, strong)UILabel *artistName;
 @property (nonatomic, strong)UILabel *title;

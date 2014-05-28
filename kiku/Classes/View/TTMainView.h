@@ -9,6 +9,8 @@
 #import "TTViewBase.h"
 #import "TTHeaderView.h"
 #import "TTListContentView.h"
+#import "TTScrollView.h"
+#import "TTShadowView.h"
 
 @protocol TTMainViewDelegate
 -(void)headerSearchPressed:(NSString*)word;
@@ -16,14 +18,17 @@
 
 
 @interface TTMainView : TTViewBase<
-TTHeaderViewDelegate
+TTHeaderViewDelegate,
+TTShadowViewDelegate
 >
 
 @property (nonatomic, strong) id<TTMainViewDelegate>delegate;
 @property (nonatomic, strong) UIView *statusBarView;
 @property (nonatomic, strong) TTHeaderView *headerView;
-@property (nonatomic, strong) TTListContentView *listContentView; //debug
-
-- (void)initializeListContentView:(TTSongData*)songData;
+@property (nonatomic, strong) TTScrollView *scrollView;
+@property (nonatomic, strong) TTShadowView *shadowView;
+ 
+- (void)recievedSongData:(NSArray*)songs;
+- (void)clearSongs;
 
 @end

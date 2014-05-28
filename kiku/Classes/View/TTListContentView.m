@@ -16,6 +16,7 @@
 
 @implementation TTListContentView
 
+@synthesize delegate = _delegate;
 @synthesize thumbnail = _thumbnail;
 @synthesize artistName = _artistName;
 @synthesize title = _title;
@@ -105,7 +106,21 @@
                                               self.center = CGPointMake(point.x, point.y);
                                           }
                                           completion:^(BOOL finished){
+                                              [_delegate finishedShowAnimation:self];
                                           }];
+                     }];
+}
+
+- (void)hideAnimation {
+    [UIView animateWithDuration:kAnimShowDuration
+                          delay:0.0
+                        options:UIViewAnimationOptionBeginFromCurrentState
+                     animations:^{
+                         //Animation
+                         self.alpha = 0.f;
+                     }
+                     completion:^(BOOL finished){
+                         [_delegate finishedShowAnimation:self];
                      }];
 }
 

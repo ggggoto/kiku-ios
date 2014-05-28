@@ -8,6 +8,7 @@
 
 #import "TTMainView.h"
 #import "TTMasterData.h"
+#import "NSString+util.h"
 
 @implementation TTMainView
 
@@ -21,6 +22,8 @@
     if (self) {
         // Initialization code
         [self initializeStatusBarView];
+        [self initializeScrollView];
+        [self initializeShadowView];
         [self initializeHeaderView];
     }
     return self;
@@ -38,11 +41,27 @@
     [self addSubview:_headerView];
 }
 
-//TODO debug
-- (void)initializeListContentView:(TTSongData*)songData {
-    _listContentView = [[TTListContentView alloc]initWithFrame:CGRectMake(0, kStatusBarHeight + kHeaderHeight, SCREEN_FRAME.size.width, kListHeight) withSongData:songData];
-    [self addSubview:_listContentView];
-    [_listContentView showAnimation];
+- (void)initializeShadowView {
+    _shadowView = [[TTShadowView alloc]initWithFrame:CGRectMake(0, kHeaderHeight, SCREEN_FRAME.size.width, SCREEN_FRAME.size.height)];
+    _shadowView.delegate = self;
+    [self addSubview:_shadowView];
+}
+
+- (void)initializeScrollView {
+    _scrollView = [[TTScrollView alloc]initWithFrame:CGRectMake(0,
+                                                                kStatusBarHeight + kHeaderHeight,
+                                                                SCREEN_FRAME.size.height,
+                                                                SCREEN_FRAME.size.height - kHeaderHeight)];
+    [self addSubview:_scrollView];
+}
+
+#pragma mark scrollview
+- (void)recievedSongData:(NSArray*)songs {
+    [_scrollView recieveContentsArray:songs];
+}
+
+- (void)clearSongs {
+    [_scrollView clearContent];
 }
 
 #pragma mark header
@@ -50,7 +69,20 @@
 }
 
 -(void)headerSearchPressed:(NSString *)word {
-    [_delegate headerSearchPressed:word];
+    [_shadowView hideAnimation];
+    if (![NSString_util stringIsNilOrEmpty:word]) {
+        [_delegate headerSearchPressed:word];
+    }
+}
+
+- (void)headerSearchBegin {
+    [_shadowView showAnimation];
+}
+
+#pragma shadowview
+- (void)tappedShadowView {
+    [_shadowView hideAnimation];
+    [_headerView cancelSearchInput];
 }
 
 /*

@@ -9,7 +9,6 @@
 #import "TTHeaderView.h"
 #import "HTAutocompleteManager.h"
 #import "TTMasterData.h"
-#import "NSString+util.h"
 
 #define kButtonSize 44
 #define kTextFieldVerticalGap 7
@@ -90,16 +89,23 @@
 }
 
 #pragma mark textfield
+-(BOOL)textFieldShouldBeginEditing:(UITextField*)textField {
+    [_delegate headerSearchBegin];
+    return YES;
+}
+
 -(BOOL)textFieldShouldClear:(UITextField*)textField {
     return YES;
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField*)textField{
     [_textField resignFirstResponder];
-    if (![NSString_util stringIsNilOrEmpty:textField.text]) {
-        [_delegate headerSearchPressed:textField.text];
-    }
+    [_delegate headerSearchPressed:textField.text];
     return YES;
+}
+
+- (void)cancelSearchInput {
+  [_textField resignFirstResponder];
 }
 
 #pragma mark button

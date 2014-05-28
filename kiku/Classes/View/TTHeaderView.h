@@ -12,6 +12,7 @@
 #import "HTAutocompleteTextField.h"
 
 @protocol TTHeaderViewDelegate
+-(void)headerSearchBegin;
 -(void)headerSearchPressed:(NSString*)word;
 -(void)headerMenuPressed;
 @end
@@ -26,6 +27,7 @@ TTButtonDelegate
 @property (nonatomic, strong) TTButton* button;
 
 - (id)initWithFrame:(CGRect)frame;
+- (void)cancelSearchInput;
 
 
 @end
