@@ -14,6 +14,7 @@
 #import "TTFifo.h"
 
 @protocol TTAudioEngineDelegate
+-(void)seeking;
 -(void)readyPlaying;
 -(void)updateCurrentPlaybackTime:(int)currentPlaybackTime;
 @end

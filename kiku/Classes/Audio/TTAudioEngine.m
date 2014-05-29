@@ -105,6 +105,7 @@
     if (_mediaPlayer != NULL) {
         _mediaPlayer = NULL;
     }
+    [_delegate seeking];
     _mediaPlayer = [[MPMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString: urlStr]];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerLoadStateDidChangeNotification object:nil];

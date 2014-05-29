@@ -51,12 +51,12 @@
 }
 
 - (void)tapAnimation {
-    [UIView animateWithDuration:kButtonTapDuration
+    [UIView animateWithDuration:kButtonTapDuration * 1.5
                           delay:0.0
                         options:UIViewAnimationOptionBeginFromCurrentState
                      animations:^{
                          //Animation
-                         self.alpha = 0.2;
+                         self.alpha = 0.1;
                      }
                      completion:^(BOOL finished){
                          //Completion

@@ -15,6 +15,7 @@
 @synthesize delegate = _delegate;
 @synthesize statusBarView = _statusBarView;
 @synthesize headerView = _headerView;
+@synthesize toolBar = _toolBar;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -25,6 +26,7 @@
         [self initializeScrollView];
         [self initializeShadowView];
         [self initializeHeaderView];
+        [self initializeToolbar];
     }
     return self;
 }
@@ -51,9 +53,17 @@
     _scrollView = [[TTScrollView alloc]initWithFrame:CGRectMake(0,
                                                                 kStatusBarHeight + kHeaderHeight,
                                                                 SCREEN_FRAME.size.height,
-                                                                SCREEN_FRAME.size.height - kHeaderHeight)];
+                                                                SCREEN_FRAME.size.height - kHeaderHeight - kToolbarHeight)];
     _scrollView.delegate = self;
     [self addSubview:_scrollView];
+}
+
+- (void)initializeToolbar {
+    _toolBar = [[TTToolbar alloc]initWithFrame:CGRectMake(0,
+                                                         SCREEN_FRAME.size.height + kStatusBarHeight - kToolbarHeight,
+                                                         SCREEN_FRAME.size.width,
+                                                          kToolbarHeight)];
+    [self addSubview:_toolBar];
 }
 
 #pragma mark scrollview

@@ -40,9 +40,7 @@
     
     [self initializeCommEngine];
     [self initializeAudioEngine];
-    
     [self initializeMainView];
-    
 }
 
 //for debug
@@ -60,6 +58,7 @@
 - (void)initializeAudioEngine {
     _audioEngine = [[TTAudioEngine alloc] init];
     [_audioEngine setMode:kAudioAlbumRepeat];
+    _audioEngine.delegate = self;
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     [self becomeFirstResponder];
 }
@@ -127,6 +126,19 @@
         default:
             break;
     }
+}
+
+#pragma mark audio engine
+-(void)seeking {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+}
+
+- (void)readyPlaying {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+}
+
+-(void)updateCurrentPlaybackTime:(int)currentPlaybackTime {
+    
 }
 
 #pragma mark Header

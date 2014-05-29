@@ -11,6 +11,7 @@
 #import "TTListContentView.h"
 #import "TTScrollView.h"
 #import "TTShadowView.h"
+#import "TTToolbar.h"
 
 @protocol TTMainViewDelegate
 -(void)headerSearchPressed:(NSString*)word;
@@ -28,6 +29,7 @@ TTScrollViewDelegate
 @property (nonatomic, strong) TTHeaderView *headerView;
 @property (nonatomic, strong) TTScrollView *scrollView;
 @property (nonatomic, strong) TTShadowView *shadowView;
+@property (nonatomic, strong) TTToolbar *toolBar;
  
 - (void)recievedSongData:(NSArray*)songs;
 - (void)clearSongs;

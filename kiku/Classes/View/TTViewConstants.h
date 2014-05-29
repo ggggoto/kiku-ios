@@ -21,7 +21,7 @@
 
 #define kStatusBarHeight 20
 #define kHeaderHeight 44
-#define kToolbarHeight 50
+#define kToolbarHeight 44
 #define kListHeight 72
 
 #pragma animation
