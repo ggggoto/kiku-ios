@@ -10,6 +10,7 @@
 #import "AFJSONRequestOperation.h"
 #import "TTSongData.h"
 #import "Endpoints.h"
+#import "CommConstants.h"
 //#import "Macro.h"
 
 #define TIMEOUT 10
@@ -59,8 +60,8 @@
     NSURL *url = [NSURL URLWithString:urlStr];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLCacheStorageAllowedInMemoryOnly timeoutInterval:TIMEOUT];
-    [request addValue:@"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 7.1; Trident/5.0)" forHTTPHeaderField:@"User-Agent"];
-    [request addValue:@"http://www.xiami.com/song/play" forHTTPHeaderField:@"Referer"];
+    [request addValue:kUserAgent forHTTPHeaderField:@"User-Agent"];
+    [request addValue:kReferrer forHTTPHeaderField:@"Referer"];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation
                                          JSONRequestOperationWithRequest:request
                                          success:^(NSURLRequest *request,

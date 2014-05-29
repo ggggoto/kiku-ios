@@ -93,6 +93,7 @@
 		45A937A31936482300F2C4C4 /* TTShadowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTShadowView.m; path = Classes/View/TTShadowView.m; sourceTree = "<group>"; };
 		45A937A519379F0300F2C4C4 /* TTToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTToolbar.h; path = Classes/View/TTToolbar.h; sourceTree = "<group>"; };
 		45A937A619379F0300F2C4C4 /* TTToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTToolbar.m; path = Classes/View/TTToolbar.m; sourceTree = "<group>"; };
+		45A937A81937A7EE00F2C4C4 /* CommConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CommConstants.h; path = Classes/Comm/CommConstants.h; sourceTree = "<group>"; };
 		45D10091192887E1006A1F12 /* HTAutocompleteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTAutocompleteManager.h; path = Classes/OSS/HTAutocomplete/HTAutocompleteManager.h; sourceTree = "<group>"; };
 		45D10092192887E1006A1F12 /* HTAutocompleteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTAutocompleteManager.m; path = Classes/OSS/HTAutocomplete/HTAutocompleteManager.m; sourceTree = "<group>"; };
 		45D10093192887E1006A1F12 /* HTAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTAutocompleteTextField.h; path = Classes/OSS/HTAutocomplete/HTAutocompleteTextField.h; sourceTree = "<group>"; };
@@ -369,6 +370,7 @@
 		45FC1CC1192525C800694056 /* Comm */ = {
 			isa = PBXGroup;
 			children = (
+				45A937A81937A7EE00F2C4C4 /* CommConstants.h */,
 				45D1FF1319281639006A1F12 /* RMImageCachePool.h */,
 				45D1FF1419281639006A1F12 /* RMImageCachePool.m */,
 				45FC1CC2192525E700694056 /* TTCommunicationEngine.h */,
