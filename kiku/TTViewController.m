@@ -132,6 +132,7 @@
 #pragma mark Header
 - (void)headerSearchPressed:(NSString *)word {
     if ([_comEngine trySearch:word withPage:1]) {
+        [_audioEngine flush];
         [_mainView clearSongs];
         [[TTUserData sharedInstance] clearSongs];
         [[TTUserData sharedInstance] setNewWord:word];

@@ -72,6 +72,7 @@
 
 - (void)flush {
     [_queue flush];
+    [_fifo flush];
 }
 
 - (void)playPeek {
