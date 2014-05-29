@@ -57,7 +57,10 @@
     _state = kCommBusy;
     
     NSURL *url = [NSURL URLWithString:urlStr];
+    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLCacheStorageAllowedInMemoryOnly timeoutInterval:TIMEOUT];
+    [request addValue:@"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 7.1; Trident/5.0)" forHTTPHeaderField:@"User-Agent"];
+    [request addValue:@"http://www.xiami.com/song/play" forHTTPHeaderField:@"Referer"];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation
                                          JSONRequestOperationWithRequest:request
                                          success:^(NSURLRequest *request,
