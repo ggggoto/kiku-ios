@@ -13,6 +13,7 @@
 @protocol TTListContentViewDelegate
 -(void)finishedShowAnimation:(UIView*)content;
 -(void)finishedHideAnimation:(UIView*)content;
+-(void)contentTapped:(int)index;
 @end
 
 @interface TTListContentView : TTViewBase <TTSongDataDelegate>
@@ -23,7 +24,9 @@
 @property (nonatomic, strong)UILabel *title;
 @property (nonatomic, strong)UIImageView *playButton;
 @property (nonatomic, strong)RMLoadingCommon *loadingCommon;
+@property (nonatomic, strong)UIView *bgView;
+@property (nonatomic, assign)int index;
 
-- (id)initWithFrame:(CGRect)frame withSongData:(TTSongData*)songData;
+- (id)initWithFrame:(CGRect)frame withSongData:(TTSongData*)songData withIndex:(int)index;
 
 @end

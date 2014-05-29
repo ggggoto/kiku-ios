@@ -83,6 +83,23 @@
 #endif
 }
 
+- (void)playAtIndex:(int)index {
+    [self getToIndex:index];
+    [self playPeek];
+}
+
+- (void)getToIndex:(int)index {
+    while (![_fifo isEmpty]) {
+        [_queue putToFront:[_fifo pick]];
+    }
+    for (int i = 0; i < index; i++) {
+        if (![_queue hasNext]) {
+            return;
+        }
+        [_fifo put:[_queue deque]];
+    }
+}
+
 - (void)play:(NSString*)urlStr {
     if (_mediaPlayer != NULL) {
         _mediaPlayer = NULL;

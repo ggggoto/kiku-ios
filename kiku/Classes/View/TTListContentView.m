@@ -13,6 +13,7 @@
 #define kThumbnailSize 60
 #define kThumbnailGap 6
 #define kPlayButtonSize 10
+#define kTapDuration 0.5;
 
 @implementation TTListContentView
 
@@ -21,14 +22,17 @@
 @synthesize artistName = _artistName;
 @synthesize title = _title;
 @synthesize playButton = _playButton;
+@synthesize bgView = _bgView;
+@synthesize index = _index;
 
-- (id)initWithFrame:(CGRect)frame withSongData:(TTSongData*)songData {
+- (id)initWithFrame:(CGRect)frame withSongData:(TTSongData*)songData withIndex:(int)index {
     self = [super initWithFrame:frame];
     if (self) {
         [songData setDelegate:self];
         // Initialization code
         [self initializeViews:songData];
         [self setAlpha:0.f];
+        _index = index;
     }
     return self;
 }
@@ -72,6 +76,40 @@
     UIView *line = [[UIView alloc]initWithFrame:CGRectMake(kThumbnailGap, kListHeight, SCREEN_FRAME.size.width - kThumbnailGap * 2, 1)];
     [line setBackgroundColor:[[TTMasterData sharedInstance].color objectForKey:COLOR_LIST_SEPARATION]];
     [self addSubview:line];
+    
+    _bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    [_bgView setBackgroundColor:[UIColor blackColor]];
+    [_bgView setAlpha:0.0];
+    [self addSubview:_bgView];
+}
+
+- (void)handleSingleTap {
+    [self singleTapAction];
+    [_delegate contentTapped:_index];
+}
+
+- (void)singleTapAction {
+    [UIView animateWithDuration:kAnimDuration / 2
+                          delay:0.0
+                        options:UIViewAnimationOptionBeginFromCurrentState
+                     animations:^{
+                         //Animation
+                         self.bgView.alpha = 0.3;
+                     }
+                     completion:^(BOOL finished){
+                         //Completion
+                         [UIView animateWithDuration:kAnimDuration / 3
+                                               delay:0.0
+                                             options:UIViewAnimationOptionBeginFromCurrentState
+                                          animations:^{
+                                              //Animation
+                                              self.bgView.alpha = 0.f;
+                                          }
+                                          completion:^(BOOL finished){
+                                              //Completion
+                                              
+                                          }];
+                     }];
 }
 
 - (void)loadedImage:(UIImage *)image {

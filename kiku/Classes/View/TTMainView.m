@@ -52,6 +52,7 @@
                                                                 kStatusBarHeight + kHeaderHeight,
                                                                 SCREEN_FRAME.size.height,
                                                                 SCREEN_FRAME.size.height - kHeaderHeight)];
+    _scrollView.delegate = self;
     [self addSubview:_scrollView];
 }
 
@@ -83,6 +84,11 @@
 - (void)tappedShadowView {
     [_shadowView hideAnimation];
     [_headerView cancelSearchInput];
+}
+
+#pragma scrollview
+-(void)listTapped:(int)tag {
+    [_delegate listTapped:tag];
 }
 
 /*

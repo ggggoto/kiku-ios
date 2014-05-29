@@ -37,6 +37,7 @@ typedef enum {
 - (MPMoviePlaybackState)getPlaybackState;
 - (void)setMode:(TTAudioEngineMode)mode;
 - (void)playPeek;
+- (void)playAtIndex:(int)index;
 - (void)resumePlay;
 - (void)pausePlay;
 - (void)playNextSong;

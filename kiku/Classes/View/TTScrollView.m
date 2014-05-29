@@ -10,6 +10,7 @@
 
 @implementation TTScrollView
 
+@synthesize delegate = _delegate;
 @synthesize scrollView = _scrollView;
 @synthesize songCache = _songCache;
 
@@ -45,7 +46,9 @@
                                                                                     kListHeight * index,
                                                                                     SCREEN_FRAME.size.width,
                                                                                     kListHeight)
-                                                             withSongData:song];
+                                                             withSongData:song
+                                                               withIndex:index];
+    content.delegate = self;
     [_scrollView addSubview:content];
     // Animation wait time. Initial 10 article has animation wait time
     float waitTime = 0;
@@ -71,14 +74,24 @@
     }
 }
 
-- (void)finishedHideAnimation:content {
-    [content removeFromSuperview];
-}
-
 - (void)updateContentSize  {
     int index = (int)[_songCache count];
     [_scrollView setContentSize:CGSizeMake(self.frame.size.width, index * kListHeight)];
 }
+
+#pragma mark
+-(void) contentTapped:(int)tag {
+    [_delegate listTapped:tag];
+}
+
+-(void)finishedShowAnimation:(UIView *)content {
+    
+}
+
+- (void)finishedHideAnimation:content {
+    [content removeFromSuperview];
+}
+
 
 /*
 // Only override drawRect: if you perform custom drawing.

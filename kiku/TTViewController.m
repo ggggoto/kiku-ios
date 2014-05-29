@@ -81,16 +81,15 @@
 }
 
 - (void)recievedSongData:(NSMutableArray *)data {
+    [[TTUserData sharedInstance]addSongsToArray:data];
     [_mainView recievedSongData:data];
-    //TODO Update list here
-    
-    /*
-    for (TTSongData* songData in data) {
-        NSLog(songData.name);
+    [self enqueAllSongs:data];
+}
+
+- (void)enqueAllSongs:(NSArray*)songs {
+    for (TTSongData* songData in songs) {
         [_audioEngine enque:songData];
     }
-    [_audioEngine playPeek];
-    */
 }
 
 - (void)errorReceived {
@@ -134,11 +133,17 @@
 - (void)headerSearchPressed:(NSString *)word {
     if ([_comEngine trySearch:word withPage:1]) {
         [_mainView clearSongs];
+        [[TTUserData sharedInstance] clearSongs];
         [[TTUserData sharedInstance] setNewWord:word];
         [TTUserData sharedInstance].page = 1;
     } else {
         [self showAlertView];
     }
+}
+
+#pragma mark mainview
+-(void)listTapped:(int)tag {
+    [_audioEngine playAtIndex:tag];
 }
 
 @end

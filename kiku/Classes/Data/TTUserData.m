@@ -12,6 +12,7 @@
 
 @synthesize currentWord = _currentWord;
 @synthesize page = _page;
+@synthesize songs = _songs;
 
 - (id)init {
     [self doesNotRecognizeSelector:_cmd];
@@ -31,7 +32,7 @@
 - (id)initSharedInstance {
     self = [super init];
     if (self) {
-
+        _songs = [NSMutableArray array];
     }
     return self;
 }
@@ -39,6 +40,18 @@
 - (void)setNewWord:(NSString*)word {
     _currentWord = word;
     _page = 1;
+}
+
+- (void)addSongsToArray:(NSArray*)data {
+    [_songs addObjectsFromArray:data];
+}
+
+- (void)appendSongsToArray:(TTSongData*)data {
+    [_songs addObject:data];
+}
+
+- (void)clearSongs {
+    [_songs removeAllObjects];
 }
 
 @end

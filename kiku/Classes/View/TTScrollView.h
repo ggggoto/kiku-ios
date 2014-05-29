@@ -10,8 +10,13 @@
 #import "TTListContentView.h"
 #import "TTSongData.h"
 
+@protocol TTScrollViewDelegate
+-(void)listTapped:(int)tag;
+@end
+
 @interface TTScrollView : TTViewBase<UIScrollViewDelegate, TTListContentViewDelegate>
 
+@property (nonatomic, strong) id<TTScrollViewDelegate>delegate;
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableArray *songCache;
 

@@ -14,12 +14,13 @@
 
 @protocol TTMainViewDelegate
 -(void)headerSearchPressed:(NSString*)word;
+-(void)listTapped:(int)tag;
 @end
-
 
 @interface TTMainView : TTViewBase<
 TTHeaderViewDelegate,
-TTShadowViewDelegate
+TTShadowViewDelegate,
+TTScrollViewDelegate
 >
 
 @property (nonatomic, strong) id<TTMainViewDelegate>delegate;
