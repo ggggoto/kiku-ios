@@ -9,6 +9,7 @@
 #import "TTViewBase.h"
 #import "TTListContentView.h"
 #import "TTSongData.h"
+#import "FXBlurView.h"
 
 @protocol TTScrollViewDelegate
 -(void)listTapped:(int)tag;

@@ -16,6 +16,7 @@
 @protocol TTMainViewDelegate
 -(void)headerSearchPressed:(NSString*)word;
 -(void)listTapped:(int)tag;
+-(void)headerMenuTapped;
 @end
 
 @interface TTMainView : TTViewBase<
@@ -30,7 +31,7 @@ TTScrollViewDelegate
 @property (nonatomic, strong) TTScrollView *scrollView;
 @property (nonatomic, strong) TTShadowView *shadowView;
 @property (nonatomic, strong) TTToolbar *toolBar;
- 
+
 - (void)recievedSongData:(NSArray*)songs;
 - (void)clearSongs;
 

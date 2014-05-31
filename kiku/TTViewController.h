@@ -10,6 +10,7 @@
 #import "TTCommunicationEngine.h"
 #import "TTAudioEngine.h"
 #import "TTMainView.h"
+#import "FXBlurView.h"
 
 @interface TTViewController : UIViewController<
 TTCommunicationEngineDelegate,
@@ -20,5 +21,6 @@ TTMainViewDelegate
 @property (nonatomic, strong) TTCommunicationEngine* comEngine;
 @property (nonatomic, strong) TTAudioEngine *audioEngine;
 @property (nonatomic, strong) TTMainView *mainView;
+@property (nonatomic, strong) FXBlurView *blurView;
 
 @end

@@ -154,9 +154,54 @@
     }
 }
 
+- (void)headerMenuTapped {
+    //TODO
+    if (_blurView == NULL || _blurView.alpha <= 0.0f) {
+        [self makeBlur:[UIColor clearColor] withBlurLevel:10.0f];
+    } else {
+        [self makeClear];
+    }
+}
+
 #pragma mark mainview
 -(void)listTapped:(int)tag {
     [_audioEngine playAtIndex:tag];
+}
+
+#pragma mark blur
+- (void)makeBlur:(UIColor*)color withBlurLevel:(float)blurLevel {
+    if (_blurView == NULL) {
+        _blurView = [[FXBlurView alloc]initWithFrame:CGRectMake(0, kStatusBarHeight + kHeaderHeight, self.view.frame.size.width, self.view.frame.size.height - kHeaderHeight - kToolbarHeight - kStatusBarHeight)];
+        [_blurView setBackgroundColor:[UIColor clearColor]];
+        [self.view addSubview:_blurView];
+        _blurView.blurRadius = blurLevel;
+        _blurView.alpha = 0.f;
+        _blurView.tintColor = color;
+        _blurView.dynamic = NO;
+        _blurView.iterations = 10;
+        [_blurView setNeedsDisplay];
+    }
+    
+    __block NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:[NSBlockOperation blockOperationWithBlock:^{
+        _blurView.alpha += 0.2;
+        if (_blurView.alpha >= 1.0) {
+            [timer invalidate];
+            //_viewState = kScrollViewBlur;
+        }
+    }] selector:@selector(main) userInfo:nil repeats:YES];
+}
+
+- (void)makeClear {
+    if (_blurView != NULL) {
+        __block NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:[NSBlockOperation blockOperationWithBlock:^{
+            _blurView.alpha -= 0.2;
+            if (_blurView.alpha <= 0.0) {
+                [timer invalidate];
+                [_blurView removeFromSuperview];
+                _blurView = NULL;
+            }
+        }] selector:@selector(main) userInfo:nil repeats:YES];
+    }
 }
 
 @end

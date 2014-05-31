@@ -77,6 +77,7 @@
 
 #pragma mark header
 -(void)headerMenuPressed {
+    [_delegate headerMenuTapped];
 }
 
 -(void)headerSearchPressed:(NSString *)word {
