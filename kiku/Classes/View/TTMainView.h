@@ -12,6 +12,7 @@
 #import "TTScrollView.h"
 #import "TTShadowView.h"
 #import "TTToolbar.h"
+#import "TTTableViewController.h"
 
 @protocol TTMainViewDelegate
 -(void)headerSearchPressed:(NSString*)word;
@@ -29,6 +30,7 @@ TTScrollViewDelegate
 @property (nonatomic, strong) UIView *statusBarView;
 @property (nonatomic, strong) TTHeaderView *headerView;
 @property (nonatomic, strong) TTScrollView *scrollView;
+@property (nonatomic, strong) TTTableViewController *tableViewController;
 @property (nonatomic, strong) TTShadowView *shadowView;
 @property (nonatomic, strong) TTToolbar *toolBar;
 

@@ -14,6 +14,8 @@
 		45A937A41936482300F2C4C4 /* TTShadowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A937A31936482300F2C4C4 /* TTShadowView.m */; };
 		45A937A719379F0300F2C4C4 /* TTToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A937A619379F0300F2C4C4 /* TTToolbar.m */; };
 		45A937AC1939692E00F2C4C4 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A937AB1939692E00F2C4C4 /* FXBlurView.m */; };
+		45A937B51948B4EB00F2C4C4 /* TTTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A937B41948B4EB00F2C4C4 /* TTTableViewController.m */; };
+		45A937B81948B64F00F2C4C4 /* TTTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A937B71948B64F00F2C4C4 /* TTTableViewCell.m */; };
 		45D10097192887E1006A1F12 /* HTAutocompleteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D10092192887E1006A1F12 /* HTAutocompleteManager.m */; };
 		45D10098192887E1006A1F12 /* HTAutocompleteTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D10094192887E1006A1F12 /* HTAutocompleteTextField.m */; };
 		45D1009C1928892D006A1F12 /* TTMasterData.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D1009B1928892D006A1F12 /* TTMasterData.m */; };
@@ -97,6 +99,10 @@
 		45A937A81937A7EE00F2C4C4 /* CommConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CommConstants.h; path = Classes/Comm/CommConstants.h; sourceTree = "<group>"; };
 		45A937AA1939692E00F2C4C4 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FXBlurView.h; path = Classes/OSS/FXBlurView/FXBlurView.h; sourceTree = "<group>"; };
 		45A937AB1939692E00F2C4C4 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FXBlurView.m; path = Classes/OSS/FXBlurView/FXBlurView.m; sourceTree = "<group>"; };
+		45A937B31948B4EB00F2C4C4 /* TTTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTTableViewController.h; path = Classes/View/TTTableViewController.h; sourceTree = "<group>"; };
+		45A937B41948B4EB00F2C4C4 /* TTTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTTableViewController.m; path = Classes/View/TTTableViewController.m; sourceTree = "<group>"; };
+		45A937B61948B64F00F2C4C4 /* TTTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTTableViewCell.h; path = Classes/View/TTTableViewCell.h; sourceTree = "<group>"; };
+		45A937B71948B64F00F2C4C4 /* TTTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTTableViewCell.m; path = Classes/View/TTTableViewCell.m; sourceTree = "<group>"; };
 		45D10091192887E1006A1F12 /* HTAutocompleteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTAutocompleteManager.h; path = Classes/OSS/HTAutocomplete/HTAutocompleteManager.h; sourceTree = "<group>"; };
 		45D10092192887E1006A1F12 /* HTAutocompleteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTAutocompleteManager.m; path = Classes/OSS/HTAutocomplete/HTAutocompleteManager.m; sourceTree = "<group>"; };
 		45D10093192887E1006A1F12 /* HTAutocompleteTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTAutocompleteTextField.h; path = Classes/OSS/HTAutocomplete/HTAutocompleteTextField.h; sourceTree = "<group>"; };
@@ -449,6 +455,10 @@
 				45FD1C2619322609005AA91F /* TTMainView.m */,
 				45A937A519379F0300F2C4C4 /* TTToolbar.h */,
 				45A937A619379F0300F2C4C4 /* TTToolbar.m */,
+				45A937B31948B4EB00F2C4C4 /* TTTableViewController.h */,
+				45A937B41948B4EB00F2C4C4 /* TTTableViewController.m */,
+				45A937B61948B64F00F2C4C4 /* TTTableViewCell.h */,
+				45A937B71948B64F00F2C4C4 /* TTTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -647,6 +657,7 @@
 				45FD1C4D19324D62005AA91F /* RMRefreshLoadingAnimation.m in Sources */,
 				45D1009C1928892D006A1F12 /* TTMasterData.m in Sources */,
 				45FD1C40193241CB005AA91F /* TTListContentView.m in Sources */,
+				45A937B81948B64F00F2C4C4 /* TTTableViewCell.m in Sources */,
 				45FC1CB81925256D00694056 /* AFHTTPRequestOperation.m in Sources */,
 				45D1FF0F192809FC006A1F12 /* TTQueue.m in Sources */,
 				45D1FF1219280B4E006A1F12 /* TTFifo.m in Sources */,
@@ -655,6 +666,7 @@
 				45FC1CB71925256D00694056 /* AFHTTPClient.m in Sources */,
 				45D10097192887E1006A1F12 /* HTAutocompleteManager.m in Sources */,
 				45FC1CBD1925256D00694056 /* AFPropertyListRequestOperation.m in Sources */,
+				45A937B51948B4EB00F2C4C4 /* TTTableViewController.m in Sources */,
 				45A937A41936482300F2C4C4 /* TTShadowView.m in Sources */,
 				45FC1CC4192525E700694056 /* TTCommunicationEngine.m in Sources */,
 				45FC1CBC1925256D00694056 /* AFNetworkActivityIndicatorManager.m in Sources */,

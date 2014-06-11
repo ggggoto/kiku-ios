@@ -16,6 +16,7 @@
 @synthesize statusBarView = _statusBarView;
 @synthesize headerView = _headerView;
 @synthesize toolBar = _toolBar;
+@synthesize tableViewController = _tableViewController;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -50,12 +51,19 @@
 }
 
 - (void)initializeScrollView {
+    _tableViewController = [[TTTableViewController alloc] initWithFrame:CGRectMake(0,
+                                                                                   kStatusBarHeight + kHeaderHeight,
+                                                                                   SCREEN_FRAME.size.height,
+                                                                                   SCREEN_FRAME.size.height - kHeaderHeight - kToolbarHeight)];
+    [self addSubview:_tableViewController.view];
+    /*
     _scrollView = [[TTScrollView alloc]initWithFrame:CGRectMake(0,
                                                                 kStatusBarHeight + kHeaderHeight,
                                                                 SCREEN_FRAME.size.height,
                                                                 SCREEN_FRAME.size.height - kHeaderHeight - kToolbarHeight)];
     _scrollView.delegate = self;
     [self addSubview:_scrollView];
+     */
 }
 
 - (void)initializeToolbar {
