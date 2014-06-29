@@ -137,9 +137,21 @@
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
--(void)updateCurrentPlaybackTime:(int)currentPlaybackTime {
-    
+-(void)updateCurrentPlaybackTime:(int)currentPlaybackTime withSongDuration:(int)songDuration
+{
+    [_mainView updateCurrentPlaybackTime:currentPlaybackTime withSongDuration:songDuration];
 }
+
+-(void)onChangedCurrentPlayingSong:(TTSongData *)songData
+{
+    [_mainView onChangedCurrentPlayingSong:songData];
+}
+
+- (int)getCurrentPlaybackDuration
+{
+    return [_audioEngine getCurrentPlaybackDuration];
+}
+
 
 #pragma mark Header
 - (void)headerSearchPressed:(NSString *)word {
@@ -166,6 +178,22 @@
 #pragma mark mainview
 -(void)listTapped:(int)tag {
     [_audioEngine playAtIndex:tag];
+    _mainView.playView.alpha = 1.0f;
+}
+
+#pragma mark mainview
+-(void)playOrStop{
+    [self respondPlayPauseEvent];
+}
+
+-(void)playingBack
+{
+    [_audioEngine pressedBackButton];
+}
+
+-(void)playingForward
+{
+    [_audioEngine playNextSong];
 }
 
 #pragma mark blur

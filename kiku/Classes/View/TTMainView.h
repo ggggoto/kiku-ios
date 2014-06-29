@@ -12,17 +12,22 @@
 #import "TTScrollView.h"
 #import "TTShadowView.h"
 #import "TTToolbar.h"
+#import "TTPlayView.h"
 
 @protocol TTMainViewDelegate
 -(void)headerSearchPressed:(NSString*)word;
 -(void)listTapped:(int)tag;
 -(void)headerMenuTapped;
+-(void)playOrStop;
+-(void)playingBack;
+-(void)playingForward;
 @end
 
 @interface TTMainView : TTViewBase<
 TTHeaderViewDelegate,
 TTShadowViewDelegate,
-TTScrollViewDelegate
+TTScrollViewDelegate,
+TTPlayViewDelegate
 >
 
 @property (nonatomic, strong) id<TTMainViewDelegate>delegate;
@@ -31,8 +36,11 @@ TTScrollViewDelegate
 @property (nonatomic, strong) TTScrollView *scrollView;
 @property (nonatomic, strong) TTShadowView *shadowView;
 @property (nonatomic, strong) TTToolbar *toolBar;
+@property (nonatomic, strong) TTPlayView *playView;
 
 - (void)recievedSongData:(NSArray*)songs;
 - (void)clearSongs;
+-(void)onChangedCurrentPlayingSong:(TTSongData*)data;
+-(void)updateCurrentPlaybackTime:(int)currentPlaybackTime withSongDuration:(int)songDuration;
 
 @end

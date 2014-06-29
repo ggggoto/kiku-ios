@@ -27,6 +27,7 @@
         [self initializeShadowView];
         [self initializeHeaderView];
         [self initializeToolbar];
+        [self initializePlayView];
     }
     return self;
 }
@@ -66,6 +67,15 @@
     [self addSubview:_toolBar];
 }
 
+- (void)initializePlayView {
+    _playView = [[TTPlayView alloc]initWithFrame:CGRectMake(0,
+                                                            0,
+                                                            SCREEN_FRAME.size.width,
+                                                            SCREEN_FRAME.size.height + kStatusBarHeight - kToolbarHeight)];
+    _playView.delegate = self;
+    [self addSubview:_playView];
+}
+
 #pragma mark scrollview
 - (void)recievedSongData:(NSArray*)songs {
     [_scrollView recieveContentsArray:songs];
@@ -100,6 +110,31 @@
 #pragma scrollview
 -(void)listTapped:(int)tag {
     [_delegate listTapped:tag];
+}
+
+#pragma playview
+-(void)onChangedCurrentPlayingSong:(TTSongData*)data{
+    [_playView onChangedCurrentPlayingSong:data];
+}
+
+-(void)updateCurrentPlaybackTime:(int)currentPlaybackTime withSongDuration:(int)songDuration{
+    [_playView updateCurrentPlaybackTime:currentPlaybackTime withSongDuration:songDuration];
+}
+
+
+-(void)playOrStop
+{
+    [_delegate playOrStop];
+}
+
+-(void)playBack
+{
+    [_delegate playingBack];
+}
+
+-(void)playForward
+{
+    [_delegate playingForward];
 }
 
 /*

@@ -61,12 +61,14 @@
     [japanese setValue:COMM_ALERT_JA forKey:COMM_ALERT_KEY];
     [japanese setValue:COMM_ALERT_TITLE_JA forKey:COMM_ALERT_TITLE_KEY];
     [japanese setValue:COMM_ALERT_CONFIRMATION_JA forKey:COMM_ALERT_CONFIRMATION_KEY];
+    [japanese setValue:PLAY_TITLE_JA forKey:PlAY_TITLE_KEY];
     
     NSMutableDictionary *english = [[NSMutableDictionary alloc]init];
     [english setValue:SEARCH_PLACEHOLDER_EN forKey:SEARCH_PLACEHOLDER_KEY];
     [english setValue:COMM_ALERT_EN forKey:COMM_ALERT_KEY];
     [english setValue:COMM_ALERT_TITLE_EN forKey:COMM_ALERT_TITLE_KEY];
     [english setValue:COMM_ALERT_CONFIRMATION_EN forKey:COMM_ALERT_CONFIRMATION_KEY];
+    [english setValue:PLAY_TITLE_EN forKey:PlAY_TITLE_KEY];
     
     [_text setObject:japanese forKey:JAPANESE];
     [_text setObject:english forKey:ENGLISH];

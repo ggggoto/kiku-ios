@@ -5,46 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>B86468B3-D88F-40CF-B51F-C7959EA0D71E</string>
+	<string>36684616-C715-4888-97E9-72CFF40A4AE7</string>
 	<key>IDESourceControlProjectName</key>
 	<string>kiku</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>8976051E-A775-4D9F-8524-61569728104A</key>
-		<string>https://github.com/cinemania/kiku.git</string>
+		<key>BEF7E0EE-6300-4BFB-946F-6FFD08B88214</key>
+		<string>https://github.com/ggggoto/kiku-ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>kiku.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>8976051E-A775-4D9F-8524-61569728104A</key>
+		<key>BEF7E0EE-6300-4BFB-946F-6FFD08B88214</key>
 		<string>../..</string>
-		<key>9C618B40-E779-491A-B0C6-F732B3858CC7</key>
-		<string>../../kiku</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/cinemania/kiku.git</string>
+	<string>https://github.com/ggggoto/kiku-ios.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>8976051E-A775-4D9F-8524-61569728104A</string>
+	<string>BEF7E0EE-6300-4BFB-946F-6FFD08B88214</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>8976051E-A775-4D9F-8524-61569728104A</string>
+			<string>BEF7E0EE-6300-4BFB-946F-6FFD08B88214</string>
 			<key>IDESourceControlWCCName</key>
-			<string>kiku</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>9C618B40-E779-491A-B0C6-F732B3858CC7</string>
-			<key>IDESourceControlWCCName</key>
-			<string>kiku</string>
+			<string>kiku-ios</string>
 		</dict>
 	</array>
 </dict>

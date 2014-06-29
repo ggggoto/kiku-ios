@@ -29,6 +29,10 @@
 #define COLOR_SEARCH_INSIDE @"ColorSearchInside"
 #define COLOR_LIST_SEPARATION @"ListSeparationLine"
 
+#define PlAY_TITLE_KEY @"PlayViewTitle"
+#define PLAY_TITLE_JA @"再生中"
+#define PLAY_TITLE_EN @"Now Playing"
+
 @interface TTMasterData : NSData
 
 + (TTMasterData*)sharedInstance;

@@ -14,6 +14,7 @@
 
 #pragma font
 #define kFontHirakaku @"HiraKakuProN-W3"
+#define kFontHirakaku_Bold @"HiraKakuProN-W6"
 #define kFontHelvetica @"Helvetica"
 #define kFontVerdana @"Verdana-Bold"
 

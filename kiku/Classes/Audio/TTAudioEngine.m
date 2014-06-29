@@ -77,10 +77,12 @@
 
 - (void)playPeek {
     TTSongData *data = [_queue peek];
+    [_delegate onChangedCurrentPlayingSong:data];
     [self play:data.location];
     [self setLockScreenInfo:data.image audioTitle:data.name albumTitle:data.albumName artist:data.artistName];
 #ifdef DEBUG_OUT
     NSLog(@"Start playing %@", data.toString);
+    NSLog(@"song duration %d", [self getCurrentPlaybackDuration]);
 #endif
 }
 
@@ -126,7 +128,7 @@
     
     [NSTimer scheduledTimerWithTimeInterval:1 target:[NSBlockOperation blockOperationWithBlock:^{
         int time = _mediaPlayer.currentPlaybackTime;
-        [_delegate updateCurrentPlaybackTime:time];
+        [_delegate updateCurrentPlaybackTime:time withSongDuration:[self getCurrentPlaybackDuration]];
     }] selector:@selector(main) userInfo:nil repeats:YES];
 }
 

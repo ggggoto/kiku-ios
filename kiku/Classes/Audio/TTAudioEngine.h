@@ -16,7 +16,8 @@
 @protocol TTAudioEngineDelegate
 -(void)seeking;
 -(void)readyPlaying;
--(void)updateCurrentPlaybackTime:(int)currentPlaybackTime;
+-(void)updateCurrentPlaybackTime:(int)currentPlaybackTime withSongDuration:(int)songDuration;
+-(void)onChangedCurrentPlayingSong:(TTSongData*)songData;
 @end
 
 @interface TTAudioEngine : NSObject<AVAudioPlayerDelegate>
