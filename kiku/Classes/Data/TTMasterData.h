@@ -33,10 +33,18 @@
 #define PLAY_TITLE_JA @"再生中"
 #define PLAY_TITLE_EN @"Now Playing"
 
+#define TWEET_TEXT1_KEY @"TweetText1"
+#define TWEET_TEXT1_JA @"Now playing"
+#define TWEET_TEXT1_EN @"Now playing"
+#define TWEET_TEXT2_KEY @"TweetText2"
+#define TWEET_TEXT2_JA @"by kiku"
+#define TWEET_TEXT2_EN @"by kiku"
+
 @interface TTMasterData : NSData
 
 + (TTMasterData*)sharedInstance;
 - (NSString*) getText:(NSString*)key;
+- (NSString*) getTweetInitialText:(NSString*)songName withArtistName:(NSString*)artsitName;
 
 @property (nonatomic, strong) NSMutableDictionary *text;
 @property (nonatomic, strong) NSMutableDictionary *color;

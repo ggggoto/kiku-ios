@@ -11,6 +11,7 @@
 #import "TTAudioEngine.h"
 #import "TTMainView.h"
 #import "FXBlurView.h"
+#import <Social/Social.h>
 
 @interface TTViewController : UIViewController<
 TTCommunicationEngineDelegate,

@@ -18,9 +18,11 @@
 -(void)headerSearchPressed:(NSString*)word;
 -(void)listTapped:(int)tag;
 -(void)headerMenuTapped;
--(void)playOrStop;
--(void)playingBack;
--(void)playingForward;
+-(void)onPlayStopButtonPressed;
+-(void)onPreviousButtonPressed;
+-(void)onNextSongButtonPressed;
+-(void)onSeekBarValueChanged:(int)time;
+-(void)ontTweetButtonPressed:(NSString*)songName withArtistName:(NSString*)artistName;
 @end
 
 @interface TTMainView : TTViewBase<

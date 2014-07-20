@@ -47,6 +47,16 @@
     return [[_text objectForKey:lang]objectForKey:key];
 }
 
+- (NSString*) getTweetInitialText:(NSString *)songName withArtistName:(NSString *)artsitName {
+    NSString *initialText1 = [self getText:TWEET_TEXT1_KEY];
+    NSString *initialText2 = [self getText:TWEET_TEXT2_KEY];
+    NSString *initialText = [NSString stringWithFormat:@"%@ \"%@ - %@\" %@", initialText1,songName,artsitName,initialText2];
+    
+    NSLog(@"%@",initialText1);
+    
+    return initialText;
+}
+
 - (void) setupColor {
     _color = [[NSMutableDictionary alloc]init];
     [_color setValue:[UIColor colorWithRed:0.878 green:0.416 blue:0.039 alpha:1.0] forKey:COLOR_HEADER];
@@ -62,6 +72,8 @@
     [japanese setValue:COMM_ALERT_TITLE_JA forKey:COMM_ALERT_TITLE_KEY];
     [japanese setValue:COMM_ALERT_CONFIRMATION_JA forKey:COMM_ALERT_CONFIRMATION_KEY];
     [japanese setValue:PLAY_TITLE_JA forKey:PlAY_TITLE_KEY];
+    [japanese setValue:TWEET_TEXT1_JA forKey:TWEET_TEXT1_KEY];
+    [japanese setValue:TWEET_TEXT2_JA forKey:TWEET_TEXT2_KEY];
     
     NSMutableDictionary *english = [[NSMutableDictionary alloc]init];
     [english setValue:SEARCH_PLACEHOLDER_EN forKey:SEARCH_PLACEHOLDER_KEY];
@@ -69,6 +81,8 @@
     [english setValue:COMM_ALERT_TITLE_EN forKey:COMM_ALERT_TITLE_KEY];
     [english setValue:COMM_ALERT_CONFIRMATION_EN forKey:COMM_ALERT_CONFIRMATION_KEY];
     [english setValue:PLAY_TITLE_EN forKey:PlAY_TITLE_KEY];
+    [english setValue:TWEET_TEXT1_EN forKey:TWEET_TEXT1_KEY];
+    [english setValue:TWEET_TEXT2_EN forKey:TWEET_TEXT2_KEY];
     
     [_text setObject:japanese forKey:JAPANESE];
     [_text setObject:english forKey:ENGLISH];

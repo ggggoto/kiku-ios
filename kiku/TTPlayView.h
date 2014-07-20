@@ -16,17 +16,19 @@ typedef enum playViewButtonTypes {
     kPlayButtonTag = 2001,
     kBackButtonTag = 2002,
     kForwardButtonTag = 2003,
-    
-    
-    
+    kRepeatButtonTag = 2004,
+    kShuffleButtonTag = 2005,
+    kTweetButtonTag = 2006,
     kHideButtonTag = 2007,
 } PLAY_VIEW_TYPE;
 
 @protocol TTPlayViewDelegate
 
--(void)playOrStop;
--(void)playForward;
--(void)playBack;
+-(void)onPlayStopButtonPressed;
+-(void)onPreviousButtonPressed;
+-(void)onNextSongButtonPressed;
+-(void)onSeekBarValueChanged:(int)time;
+-(void)ontTweetButtonPressed:(NSString*)songName withArtistName:(NSString*)artistName;
 
 @end
 

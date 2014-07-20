@@ -9,6 +9,19 @@
 #import "TTPlayView.h"
 #import "TTButton.h"
 
+#define kCoverImageSize 200
+#define kSongInfoLabe_X_BASE 51
+#define kSongInfoLabe_Y_BASE 360
+#define kSongInfoLabeWidth 217
+#define kSongInfoLabeHeight 30
+
+#define kMainButton_Y 410
+#define kSubButton_Y 334
+#define kTimeLabel_Bar_Y 324
+#define kTimeLabelWidth 40
+#define kTimeLabelHeight 20
+
+
 @interface TTPlayView()
 {
     TTButton *playAndStopButton;
@@ -21,9 +34,6 @@
     UIImageView *coverImageView;
     UILabel *songTitleLabel;
     UILabel *artistNameLabel;
-    int currentSongDuration;
-    
-    int curPlaybackTime;
 }
 
 @end
@@ -32,8 +42,7 @@
 
 @synthesize delegate = _delegate;
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
@@ -41,27 +50,21 @@
         [self initializeSubParts];
         [self initializeMainParts];
         
-        self.alpha = 0.0;
+//        self.alpha = 0.0;
     }
     return self;
 }
 
-- (void) onChangedCurrentPlayingSong:(TTSongData *)data
-{
+- (void) onChangedCurrentPlayingSong:(TTSongData *)data {
     artistNameLabel.text = data.artistName;
     songTitleLabel.text = data.name;
     coverImageView.image = data.image;
-    
 }
 
-- (void) updateCurrentPlaybackTime:(int)currentPlaybackTime withSongDuration:(int)songDuration
-{
-//    curPlaybackTime = currentPlaybackTime;
-//    currentSongDuration = songDuration;
-//    NSLog(@"duration %d past %d",currentPlaybackTime,songDuration);
-    
+- (void) updateCurrentPlaybackTime:(int)currentPlaybackTime withSongDuration:(int)songDuration {
     pastTimeLabel.text = [self timeString:currentPlaybackTime];
     remainingTimeLabel.text = [self timeString:currentPlaybackTime - songDuration];
+    timeSlider.maximumValue = songDuration;
 }
 
 - (NSString*)timeString:(int)time
@@ -79,19 +82,17 @@
 }
 
 
-- (void) initializeMainParts
-{
-    
-    coverImageView = [[UIImageView alloc]initWithFrame:CGRectMake(60, 100, 200, 200)];
+- (void) initializeMainParts{
+
+    coverImageView = [[UIImageView alloc]initWithFrame:CGRectMake(60, 100, kCoverImageSize, kCoverImageSize)];
     coverImageView.backgroundColor = [UIColor clearColor];
     
-    
-    songTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(51, 360, 217, 50)];
+    songTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(kSongInfoLabe_X_BASE, kSongInfoLabe_Y_BASE, kSongInfoLabeWidth, kSongInfoLabeHeight + 20)];
     songTitleLabel.font = [UIFont fontWithName:kFontHirakaku_Bold size:19];
     songTitleLabel.textColor = [UIColor whiteColor];
     songTitleLabel.textAlignment = NSTextAlignmentCenter;
     
-    artistNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(51, 390, 217, 30)];
+    artistNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(kSongInfoLabe_X_BASE, kSongInfoLabe_Y_BASE, kSongInfoLabeWidth, kSongInfoLabeHeight)];
     artistNameLabel.font = [UIFont fontWithName:kFontHirakaku size:15];
     artistNameLabel.textColor = [UIColor whiteColor];
     artistNameLabel.textAlignment = NSTextAlignmentCenter;
@@ -101,8 +102,8 @@
     [self addSubview:artistNameLabel];
 }
 
-- (void) initializeSubParts
-{
+- (void) initializeSubParts {
+    
     UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, kStatusBarHeight + 5, self.bounds.size.width, 40)];
     NSString *titleName = [[TTMasterData sharedInstance] getText:PlAY_TITLE_KEY];
     titleLabel.text = titleName;
@@ -114,7 +115,7 @@
 
     UIImage *image1 = [UIImage imageNamed:kResourcePlayButton];
     playAndStopButton = [[TTButton alloc]initWithFrame:CGRectMake(130,
-                                                                  410,
+                                                                  kMainButton_Y,
                                                                   image1.size.width / 2,
                                                                   image1.size.height / 2)
                                         withButtonSize:CGSizeMake(image1.size.width / 2,
@@ -125,7 +126,7 @@
 
     UIImage *image2 = [UIImage imageNamed:kResourceBackButton];
     TTButton *playBackButton = [[TTButton alloc]initWithFrame:CGRectMake(46,
-                                                                         410,
+                                                                         kMainButton_Y,
                                                                          image2.size.width / 2,
                                                                          image2.size.height / 2)
                                                withButtonSize:CGSizeMake(image2.size.width / 2,
@@ -136,7 +137,7 @@
 
     UIImage *image3 = [UIImage imageNamed:kResourceForwardButton];
     TTButton *playForwardButton = [[TTButton alloc]initWithFrame:CGRectMake(214,
-                                                                            410,
+                                                                            kMainButton_Y,
                                                                             image3.size.width / 2,
                                                                             image3.size.height / 2)
                                                   withButtonSize:CGSizeMake(image3.size.width / 2,
@@ -147,21 +148,25 @@
     
     UIImage *image4 = [UIImage imageNamed:kResourceRepeatButton];
     playRepeatButton = [[TTButton alloc]initWithFrame:CGRectMake(0,
-                                                                           334,
-                                                                           image4.size.width / 2,
-                                                                           image4.size.height / 2)
-                                                 withButtonSize:CGSizeMake(image4.size.width / 2,
-                                                                           image4.size.height / 2)
-                                                      withImage:image4];
+                                                                 kSubButton_Y,
+                                                                 image4.size.width / 2,
+                                                                 image4.size.height / 2)
+                                       withButtonSize:CGSizeMake(image4.size.width / 2,
+                                                                 image4.size.height / 2)
+                                            withImage:image4];
+    [playRepeatButton setButtonTag:kRepeatButtonTag];
+    playRepeatButton.delegate = self;
 
     UIImage *image5 = [UIImage imageNamed:kResourceShuffleButton];
     playShuffleButton = [[TTButton alloc]initWithFrame:CGRectMake(self.bounds.size.width - image5.size.width / 2,
-                                                                            334,
-                                                                            image5.size.width / 2,
-                                                                            image5.size.height / 2)
-                                                  withButtonSize:CGSizeMake(image5.size.width / 2,
-                                                                            image5.size.height / 2)
-                                                      withImage:image5];
+                                                                  kSubButton_Y,
+                                                                  image5.size.width / 2,
+                                                                  image5.size.height / 2)
+                                        withButtonSize:CGSizeMake(image5.size.width / 2,
+                                                                  image5.size.height / 2)
+                                             withImage:image5];
+    [playShuffleButton setButtonTag:kShuffleButtonTag];
+    playShuffleButton.delegate = self;
 
     UIImage *image6 = [UIImage imageNamed:kResourceHeaderTweetButton];
     TTButton *tweetButton = [[TTButton alloc]initWithFrame:CGRectMake(0,
@@ -170,7 +175,9 @@
                                                                       image6.size.height / 2)
                                             withButtonSize:CGSizeMake(image6.size.width / 2,
                                                                       image6.size.height / 2)
-                                                       withImage:image6];
+                                                 withImage:image6];
+    [tweetButton setButtonTag:kTweetButtonTag];
+    tweetButton.delegate = self;
 
     UIImage *image7 = [UIImage imageNamed:kResourceHeaderCloseButton];
     TTButton *hideButton = [[TTButton alloc]initWithFrame:CGRectMake(self.bounds.size.width - image7.size.width / 2,
@@ -191,7 +198,7 @@
     [self addSubview:playBackButton];
     [self addSubview:playForwardButton];
     
-    timeSlider = [[UISlider alloc]initWithFrame:CGRectMake(51, 325, 217, 18)];
+    timeSlider = [[UISlider alloc]initWithFrame:CGRectMake(51, kTimeLabel_Bar_Y, 217, 18)];
     UIImage *image8 = [UIImage imageNamed:kResourceSliderThumb];
     UIImage *image9 = [UIImage imageNamed:kResourceSliderMaxBackground];
     UIImage *image10 = [UIImage imageNamed:kResourceSliderMinBackground];
@@ -200,14 +207,14 @@
     [timeSlider setMaximumTrackImage:image9 forState:UIControlStateNormal];
     [timeSlider setMinimumTrackImage:image10 forState:UIControlStateNormal];
     
-    [timeSlider addTarget:self action:@selector(seekBarValueChanged:) forControlEvents:UIControlEventValueChanged];
+    [timeSlider addTarget:self action:@selector(seekBarVlaueChanged:) forControlEvents:UIControlEventValueChanged];
     
     
-    pastTimeLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 324, 40, 20)];
+    pastTimeLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, kTimeLabel_Bar_Y, kTimeLabelWidth, kTimeLabelHeight)];
     pastTimeLabel.font = [UIFont fontWithName:kFontHelvetica size:10];
     pastTimeLabel.textColor = [UIColor whiteColor];
 
-    remainingTimeLabel = [[UILabel alloc]initWithFrame:CGRectMake(273, 324, 40, 20)];
+    remainingTimeLabel = [[UILabel alloc]initWithFrame:CGRectMake(273, kTimeLabel_Bar_Y, kTimeLabelWidth, kTimeLabelHeight)];
     remainingTimeLabel.font = [UIFont fontWithName:kFontHelvetica size:10];
     remainingTimeLabel.textColor = [UIColor whiteColor];
     
@@ -218,36 +225,35 @@
     [self addSubview:timeSlider];
     [self addSubview:pastTimeLabel];
     [self addSubview:remainingTimeLabel];
-
-
 }
 
-- (void)seekBarValueChanged:(UISlider *)slider
-{
-    float val = slider.value;
-//    float duration = [];
-//    float time = val * duration / timeSlider.maximumValue;
-    
-//    [_movieView seekToSeconds:time];
+- (void)seekBarVlaueChanged:(UISlider*)slider{
+    int time = slider.value;
+    [_delegate onSeekBarValueChanged:time];
 }
 
-- (void)tapped:(int)buttonTag
-{
+- (void)tapped:(int)buttonTag{
     switch (buttonTag) {
         case kPlayButtonTag:
-            [_delegate playOrStop];
+            [_delegate onPlayStopButtonPressed];
             break;
 
         case kBackButtonTag:
-            [_delegate playBack];
+            [_delegate onPreviousButtonPressed];
             break;
             
         case kForwardButtonTag:
-            [_delegate playForward];
+            [_delegate onNextSongButtonPressed];
             break;
 
+        case kTweetButtonTag:
+            if (songTitleLabel.text != NULL) {
+                [_delegate ontTweetButtonPressed:songTitleLabel.text withArtistName:artistNameLabel.text];
+            }
+            break;
+            
         case kHideButtonTag:
-            self.alpha = 0.0;
+            [self hideAnimation];
             break;
             
         default:

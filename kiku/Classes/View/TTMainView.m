@@ -113,28 +113,32 @@
 }
 
 #pragma playview
--(void)onChangedCurrentPlayingSong:(TTSongData*)data{
+-(void)onChangedCurrentPlayingSong:(TTSongData*)data {
     [_playView onChangedCurrentPlayingSong:data];
 }
 
--(void)updateCurrentPlaybackTime:(int)currentPlaybackTime withSongDuration:(int)songDuration{
+-(void)updateCurrentPlaybackTime:(int)currentPlaybackTime withSongDuration:(int)songDuration {
     [_playView updateCurrentPlaybackTime:currentPlaybackTime withSongDuration:songDuration];
 }
 
-
--(void)playOrStop
-{
-    [_delegate playOrStop];
+-(void)onPlayStopButtonPressed {
+    [_delegate onPlayStopButtonPressed];
 }
 
--(void)playBack
-{
-    [_delegate playingBack];
+-(void)onPreviousButtonPressed {
+    [_delegate onPreviousButtonPressed];
 }
 
--(void)playForward
-{
-    [_delegate playingForward];
+-(void)onNextSongButtonPressed {
+    [_delegate onNextSongButtonPressed];
+}
+
+-(void)onSeekBarValueChanged:(int)time {
+    [_delegate onSeekBarValueChanged:time];
+}
+
+-(void)ontTweetButtonPressed:(NSString *)songName withArtistName:(NSString *)artistName {
+    [_delegate ontTweetButtonPressed:songName withArtistName:artistName];
 }
 
 /*

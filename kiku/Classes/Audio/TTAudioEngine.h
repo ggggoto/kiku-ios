@@ -26,6 +26,7 @@ typedef enum {
     kAudioDoNotRepeat,
     kAudioSongRepeat,
     kAudioAlbumRepeat,
+    kAudioShffle,
 } TTAudioEngineMode;
 
 @property (nonatomic, strong) id<TTAudioEngineDelegate> delegate;

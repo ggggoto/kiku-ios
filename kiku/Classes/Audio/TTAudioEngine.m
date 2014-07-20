@@ -231,6 +231,10 @@
             }
             [self playPeek];
             break;
+        case kAudioShffle:
+            //for debug
+            [self playPeek];
+            break;
         default:
             @throw @"Unclassified mode";
             break;

@@ -70,6 +70,7 @@
 		45FD1C4B19324D62005AA91F /* RMLoadingAnimation2.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FD1C4519324D62005AA91F /* RMLoadingAnimation2.m */; };
 		45FD1C4C19324D62005AA91F /* RMLoadingCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FD1C4719324D62005AA91F /* RMLoadingCommon.m */; };
 		45FD1C4D19324D62005AA91F /* RMRefreshLoadingAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 45FD1C4919324D62005AA91F /* RMRefreshLoadingAnimation.m */; };
+		6B2D88E21967F24D0089FDBC /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2D88E11967F24D0089FDBC /* Social.framework */; };
 		6B4CB351195E8ACA0062117C /* TTPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B4CB350195E8ACA0062117C /* TTPlayView.m */; };
 		6B4CB35B195E9D8B0062117C /* btn_repeat.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B4CB353195E9D8B0062117C /* btn_repeat.png */; };
 		6B4CB35C195E9D8B0062117C /* btn_shuffle.png in Resources */ = {isa = PBXBuildFile; fileRef = 6B4CB354195E9D8B0062117C /* btn_shuffle.png */; };
@@ -205,6 +206,7 @@
 		45FD1C4719324D62005AA91F /* RMLoadingCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMLoadingCommon.m; path = Classes/View/AnimComponent/RMLoadingCommon.m; sourceTree = "<group>"; };
 		45FD1C4819324D62005AA91F /* RMRefreshLoadingAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RMRefreshLoadingAnimation.h; path = Classes/View/AnimComponent/RMRefreshLoadingAnimation.h; sourceTree = "<group>"; };
 		45FD1C4919324D62005AA91F /* RMRefreshLoadingAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RMRefreshLoadingAnimation.m; path = Classes/View/AnimComponent/RMRefreshLoadingAnimation.m; sourceTree = "<group>"; };
+		6B2D88E11967F24D0089FDBC /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		6B4CB34F195E8ACA0062117C /* TTPlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPlayView.h; sourceTree = "<group>"; };
 		6B4CB350195E8ACA0062117C /* TTPlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTPlayView.m; sourceTree = "<group>"; };
 		6B4CB353195E9D8B0062117C /* btn_repeat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_repeat.png; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B2D88E21967F24D0089FDBC /* Social.framework in Frameworks */,
 				45D1FF071927DFAA006A1F12 /* MediaPlayer.framework in Frameworks */,
 				45A8B4421927D20800013B83 /* libsqlite3.0.dylib in Frameworks */,
 				45FC1CD61927C96F00694056 /* AVFoundation.framework in Frameworks */,
@@ -303,6 +306,7 @@
 		45FC1C671925251900694056 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6B2D88E11967F24D0089FDBC /* Social.framework */,
 				45D1FF061927DFAA006A1F12 /* MediaPlayer.framework */,
 				45A8B4411927D20800013B83 /* libsqlite3.0.dylib */,
 				45FC1CD51927C96F00694056 /* AVFoundation.framework */,

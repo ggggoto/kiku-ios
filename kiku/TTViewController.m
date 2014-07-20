@@ -178,22 +178,38 @@
 #pragma mark mainview
 -(void)listTapped:(int)tag {
     [_audioEngine playAtIndex:tag];
-    _mainView.playView.alpha = 1.0f;
+    [_mainView.playView showAnimation];
 }
 
-#pragma mark mainview
--(void)playOrStop{
+#pragma mark playview
+-(void)onPlayStopButtonPressed {
     [self respondPlayPauseEvent];
 }
 
--(void)playingBack
-{
+-(void)onPreviousButtonPressed {
     [_audioEngine pressedBackButton];
 }
 
--(void)playingForward
-{
+-(void)onNextSongButtonPressed {
     [_audioEngine playNextSong];
+}
+
+-(void)onSeekBarValueChanged:(int)time {
+    [_audioEngine seek:time];
+}
+
+-(void)ontTweetButtonPressed:(NSString *)songName withArtistName:(NSString *)artistName {
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+        NSString *serviceType = SLServiceTypeTwitter;
+        SLComposeViewController *composeCtl = [SLComposeViewController composeViewControllerForServiceType:serviceType];
+        [composeCtl setInitialText:[[TTMasterData sharedInstance] getTweetInitialText:songName withArtistName:artistName]];
+        [composeCtl setCompletionHandler:^(SLComposeViewControllerResult result) {
+            if (result == SLComposeViewControllerResultDone) {
+                //To do when tweet succesed
+            }
+        }];
+        [self presentViewController:composeCtl animated:YES completion:nil];
+    }
 }
 
 #pragma mark blur
