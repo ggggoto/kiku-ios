@@ -252,6 +252,14 @@
             }
             break;
             
+        case kRepeatButtonTag:
+            [_delegate onRepeatButtonPressed];
+            break;
+            
+        case kShuffleButtonTag:
+            [_delegate onShuffleButtonPressed];
+            break;
+            
         case kHideButtonTag:
             [self hideAnimation];
             break;

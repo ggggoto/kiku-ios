@@ -198,6 +198,28 @@
     [_audioEngine seek:time];
 }
 
+-(void)onRepeatButtonPressed {
+    switch (_audioEngine.mode) {
+        case kAudioDoNotRepeat:
+            _audioEngine.mode = kAudioSongRepeat;
+            break;
+            
+        case kAudioSongRepeat:
+            _audioEngine.mode = kAudioAlbumRepeat;
+            break;
+            
+        case kAudioAlbumRepeat:
+            _audioEngine.mode = kAudioDoNotRepeat;
+            break;
+        default:
+            break;
+    }
+}
+
+-(void)onShuffleButtonPressed {
+    //TODO
+}
+
 -(void)ontTweetButtonPressed:(NSString *)songName withArtistName:(NSString *)artistName {
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
         NSString *serviceType = SLServiceTypeTwitter;

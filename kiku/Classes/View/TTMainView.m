@@ -137,6 +137,14 @@
     [_delegate onSeekBarValueChanged:time];
 }
 
+-(void)onRepeatButtonPressed{
+    [_delegate onRepeatButtonPressed];
+}
+-(void)onShuffleButtonPressed{
+    [_delegate onShuffleButtonPressed];
+}
+
+
 -(void)ontTweetButtonPressed:(NSString *)songName withArtistName:(NSString *)artistName {
     [_delegate ontTweetButtonPressed:songName withArtistName:artistName];
 }

@@ -22,6 +22,8 @@
 -(void)onPreviousButtonPressed;
 -(void)onNextSongButtonPressed;
 -(void)onSeekBarValueChanged:(int)time;
+-(void)onRepeatButtonPressed;
+-(void)onShuffleButtonPressed;
 -(void)ontTweetButtonPressed:(NSString*)songName withArtistName:(NSString*)artistName;
 @end
 
